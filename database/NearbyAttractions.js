@@ -3,7 +3,7 @@ const db = require('./index.js');
 mongoose.Promise = global.Promise;
 
 let nearByAttractionsSchema = new mongoose.Schema({
-    attractionId: Number,
+    attractionId: String,
     lat: Number,
     Long: Number,
     contact: {
@@ -41,6 +41,13 @@ let nearByAttractionsSchema = new mongoose.Schema({
 
 let NearbyAttraction = mongoose.model('NearByAttraction', nearByAttractionsSchema);
 
-module.exports = NearbyAttraction;
+//if the attraction Id is not found, null is returned
+let findAttraction = function(id) {
+  return NearbyAttraction.findOne({attractionId: id})
+}
+
+module.exports.NearbyAttraction = NearbyAttraction;
+module.exports.findAttraction = findAttraction;
+
 
 
