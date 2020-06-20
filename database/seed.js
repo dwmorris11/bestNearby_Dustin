@@ -1,7 +1,5 @@
-const NearNearbyAttractions = require('./nearbyattractions.js');
+const NearbyAttractions = require('./nearbyattractions.js');
 const Chance = require('chance');
-
-const getPaddedAttractionId = (num) =>  String(num).padStart(3, '0');
 
 const chance = new Chance();
 
@@ -22,7 +20,7 @@ const getRandomName = function() {
   //not currently attached because of undetermined bug
   let idx = chance.integer({min: 0, max: nationalities.length - 1})
   let randomNationality = nationalities[idx];
-
+    
   let building = restaurantBuildings[chance.integer({min: 0, max: restaurantBuildings.length - 1})];
  
   //{nationality: randomNationality} - removed options from name
@@ -31,12 +29,17 @@ const getRandomName = function() {
   return `${name}'s ${building}`;
 }
 
+const imageThumbBase = 'https://jwkfec2020.s3-us-west-2.amazonaws.com/FEC_images/';
+const imageThumbs = [];
+for (let i =0; i < 15; i +=1) {
+    imageThumbs.push(imageThumbBase + `FEC${i}.jpg`);
+}
+
 const makeNearbyRestaurant = function(idx, ParentLocation) {
   let lat = ParentLocation.lat + chance.floating({min: -1, max: 1, fixed: 2});
   let lng = ParentLocation.lng + chance.floating({min: -1, max: 1, fixed: 2});
   let name = getRandomName();
-  //let image = random image
-  //false because no user data is collected in this scope
+  let image = imageThumbs[chance.integer({min: 0, max: restaurantTypes.length - 1})];
   let liked = false;
   let reviewCount = chance.integer({min: 1, max: 1000});
   let reviewRating = chance.integer({min: 0, max: 10});
@@ -49,6 +52,7 @@ const makeNearbyRestaurant = function(idx, ParentLocation) {
         lat: lat,
         lng: lng
     },
+    Image: image,
     name: name,
     liked: liked,
     Review_count: reviewCount,
@@ -65,7 +69,7 @@ const makeNearbyAttraction = function(idx, ParentLocation) {
   let lat = ParentLocation.lat + chance.floating({min: -1, max: 1, fixed: 2});
   let lng = ParentLocation.lng + chance.floating({min: -1, max: 1, fixed: 2});
   let name = `The ${chance.animal()} ${barSuffixes[chance.integer({min: 0, max: barSuffixes.length - 1})]}`;
-  //let image = random image
+  let image = imageThumbs[chance.integer({min: 0, max: restaurantTypes.length - 1})];
   //false because no user data is collected in this scope
   let liked = false;
   let reviewCount = chance.integer({min: 1, max: 1000});
@@ -78,6 +82,7 @@ const makeNearbyAttraction = function(idx, ParentLocation) {
         lat: lat,
         lng: lng
     },
+    Image: image,
     name: name,
     liked: liked,
     Review_count: reviewCount,
@@ -93,7 +98,7 @@ let languages = ['English', 'French', 'Spanish']
 
 const makeNearbyExperience = function() {
   let name = chance.company();
-   //let image = image;
+  let image = imageThumbs[chance.integer({min: 0, max: restaurantTypes.length - 1})];
   let type = experienceTypes[chance.integer({min: 0, max: experienceTypes.length -1})];
   let reviewCount = chance.integer({min: 1, max: 1000});
   let reviewRating = chance.integer({min: 0, max: 10});
@@ -103,9 +108,10 @@ const makeNearbyExperience = function() {
   let language = languages[chance.integer({min: 0, max: languages.length -1})];
   let description = chance.paragraph({sentences: 3});
 
+
   let newNearbyExperience = {
     Name: name,
-    // Image: image,
+    Image: image,
     Type: type,
     Review_count: reviewCount,
     Review_rating: reviewRating,
@@ -153,3 +159,7 @@ attractionIds.forEach(attractionId => {
 
   seedData.push(newAttraction);
 })
+
+NearbyAttractions.NearbyAttraction.create(seedData)
+    .then(() => console.log('created seed data'))
+    .catch((err) => console.log(err))
