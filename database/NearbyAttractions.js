@@ -14,7 +14,7 @@ let nearByAttractionsSchema = new mongoose.Schema({
       phoneNumber: String,
       Email: String
       },
-    nearByAttractions: [
+    nearByRestaurants: [
       {
         Id: Number,
         location: {
@@ -29,7 +29,22 @@ let nearByAttractionsSchema = new mongoose.Schema({
         Type: String,
         Price: String,
       }  
-    ], 
+    ],
+    nearByAttractions: [
+      {
+        Id: Number,
+        location: {
+          lat: Number,
+          Lng: Number,
+        },
+        Name: String,
+        Image: String,
+        Liked: Boolean,
+        Review_count: Number,
+        Review_rating: Number,
+        Type: String
+      }
+    ],
     NearByExperience: {
       Name: String,
       Image: String,
