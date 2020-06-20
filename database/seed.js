@@ -128,7 +128,6 @@ const makeNearbyExperience = function() {
 attractionIds.forEach(attractionId => {
   let lat = chance.latitude({fixed: 2});
   let long = chance.longitude({fixed: 2});
-  console.log(long)
   let randLocation = { 
     long: long,
     lat: lat
