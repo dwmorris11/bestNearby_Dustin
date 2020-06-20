@@ -7,7 +7,7 @@ const seedData = [];
 
 const attractionIds = [];
 
-for (let i = 1; i <= 1; i += 1) {
+for (let i = 1; i <= 100; i += 1) {
    attractionIds.push(String(i).padStart(3, 0));
 }
 
@@ -31,13 +31,13 @@ const getRandomName = function() {
 
 const imageThumbBase = 'https://jwkfec2020.s3-us-west-2.amazonaws.com/FEC_images/';
 const imageThumbs = [];
-for (let i =0; i < 15; i +=1) {
+for (let i = 0; i < 15; i +=1) {
     imageThumbs.push(imageThumbBase + `FEC${i}.jpg`);
 }
 
 const makeNearbyRestaurant = function(idx, ParentLocation) {
   let lat = ParentLocation.lat + chance.floating({min: -1, max: 1, fixed: 2});
-  let lng = ParentLocation.lng + chance.floating({min: -1, max: 1, fixed: 2});
+  let long = ParentLocation.long + chance.floating({min: -1, max: 1, fixed: 2});
   let name = getRandomName();
   let image = imageThumbs[chance.integer({min: 0, max: restaurantTypes.length - 1})];
   let liked = false;
@@ -50,7 +50,7 @@ const makeNearbyRestaurant = function(idx, ParentLocation) {
     Id: idx,
     location: { 
         lat: lat,
-        lng: lng
+        long: long
     },
     Image: image,
     name: name,
@@ -67,7 +67,7 @@ const barSuffixes = ['Lounge', 'Hideaway', 'Cantina', 'Club', 'Pub', 'Hangout'];
 
 const makeNearbyAttraction = function(idx, ParentLocation) {
   let lat = ParentLocation.lat + chance.floating({min: -1, max: 1, fixed: 2});
-  let lng = ParentLocation.lng + chance.floating({min: -1, max: 1, fixed: 2});
+  let long = ParentLocation.long + chance.floating({min: -1, max: 1, fixed: 2});
   let name = `The ${chance.animal()} ${barSuffixes[chance.integer({min: 0, max: barSuffixes.length - 1})]}`;
   let image = imageThumbs[chance.integer({min: 0, max: restaurantTypes.length - 1})];
   //false because no user data is collected in this scope
@@ -80,7 +80,7 @@ const makeNearbyAttraction = function(idx, ParentLocation) {
     Id: idx,
     location: { 
         lat: lat,
-        lng: lng
+        long: long
     },
     Image: image,
     name: name,
@@ -126,9 +126,12 @@ const makeNearbyExperience = function() {
 
 
 attractionIds.forEach(attractionId => {
+  let lat = chance.latitude({fixed: 2});
+  let long = chance.longitude({fixed: 2});
+  console.log(long)
   let randLocation = { 
-    lat: chance.latitude({fixed: 2}),
-    lng: chance.latitude({fixed: 2})
+    long: long,
+    lat: lat
   };
   let randAddress = chance.address({short_suffix: true});
   let randWebsite = chance.email();

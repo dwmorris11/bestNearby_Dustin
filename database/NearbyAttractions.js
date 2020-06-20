@@ -6,7 +6,7 @@ let nearByAttractionsSchema = new mongoose.Schema({
     attractionId: String,
     location: {
       lat: Number,
-      Lng: Number,
+      long: Number,
     },
     contact: {
       address: String,
@@ -19,7 +19,7 @@ let nearByAttractionsSchema = new mongoose.Schema({
         Id: Number,
         location: {
           lat: Number,
-          Lng: Number,
+          long: Number,
         },
         Name: String,
         Image: String,
@@ -35,7 +35,7 @@ let nearByAttractionsSchema = new mongoose.Schema({
         Id: Number,
         location: {
           lat: Number,
-          Lng: Number,
+          long: Number,
         },
         Name: String,
         Image: String,
