@@ -54,7 +54,8 @@ let nearByAttractionsSchema = new mongoose.Schema({
       PriceUnit: String,
       PriceNumber: Number,
       PriceType: String, 
-      Language: String
+      Language: String,
+      Description: String
     }
 })
 

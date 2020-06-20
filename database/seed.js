@@ -9,7 +9,7 @@ const seedData = [];
 
 const attractionIds = [];
 
-for (let i = 1; i <= 100; i += 1) {
+for (let i = 1; i <= 1; i += 1) {
    attractionIds.push(String(i).padStart(3, 0));
 }
 
@@ -19,15 +19,21 @@ const restaurantTypes = ['Italian', 'Mediterranean', 'Indian', 'Thai', 'Vietname
 const priceIcons = ['$', '$$-$$$', '$$$$'];
 
 const getRandomName = function() {
-  let randomNationality = nationalities[chance.integer({min: 0, max: nationalities.length - 1})];
+  //not currently attached because of undetermined bug
+  let idx = chance.integer({min: 0, max: nationalities.length - 1})
+  let randomNationality = nationalities[idx];
+
   let building = restaurantBuildings[chance.integer({min: 0, max: restaurantBuildings.length - 1})];
-  let name = chance.first({nationality: randomNationality})
+ 
+  //{nationality: randomNationality} - removed options from name
+  let name = chance.first()
+
   return `${name}'s ${building}`;
 }
 
-const makeNearbyRestaurant = function(idx, ParentAttraction) {
-  let lat = ParentAttraction.lat + chance.floating({min: -1, max: 1, fixed: 2});
-  let lng = ParentAttraction.lng + chance.floating({min: -1, max: 1, fixed: 2});
+const makeNearbyRestaurant = function(idx, ParentLocation) {
+  let lat = ParentLocation.lat + chance.floating({min: -1, max: 1, fixed: 2});
+  let lng = ParentLocation.lng + chance.floating({min: -1, max: 1, fixed: 2});
   let name = getRandomName();
   //let image = random image
   //false because no user data is collected in this scope
@@ -55,9 +61,9 @@ const makeNearbyRestaurant = function(idx, ParentAttraction) {
 
 const barSuffixes = ['Lounge', 'Hideaway', 'Cantina', 'Club', 'Pub', 'Hangout'];
 
-const makeNearbyAttraction = function(idx, ParentAttraction) {
-  let lat = ParentAttraction.lat + chance.floating({min: -1, max: 1, fixed: 2});
-  let lng = ParentAttraction.lng + chance.floating({min: -1, max: 1, fixed: 2});
+const makeNearbyAttraction = function(idx, ParentLocation) {
+  let lat = ParentLocation.lat + chance.floating({min: -1, max: 1, fixed: 2});
+  let lng = ParentLocation.lng + chance.floating({min: -1, max: 1, fixed: 2});
   let name = `The ${chance.animal()} ${barSuffixes[chance.integer({min: 0, max: barSuffixes.length - 1})]}`;
   //let image = random image
   //false because no user data is collected in this scope
@@ -81,21 +87,69 @@ const makeNearbyAttraction = function(idx, ParentAttraction) {
   return newAttraction;
 }
 
-let testLatlong = { lat: chance.latitude({fixed: 2}),
+let experienceTypes = ['Charter Tour', 'Day Trips']
+
+let languages = ['English', 'French', 'Spanish']
+
+const makeNearbyExperience = function() {
+  let name = chance.company();
+   //let image = image;
+  let type = experienceTypes[chance.integer({min: 0, max: experienceTypes.length -1})];
+  let reviewCount = chance.integer({min: 1, max: 1000});
+  let reviewRating = chance.integer({min: 0, max: 10});
+  let priceUnit = 'per adult';
+  let priceNumber = chance.integer({min: 50, max: 500});
+  let pricetype = '$';
+  let language = languages[chance.integer({min: 0, max: languages.length -1})];
+  let description = chance.paragraph({sentences: 3});
+
+  let newNearbyExperience = {
+    Name: name,
+    // Image: image,
+    Type: type,
+    Review_count: reviewCount,
+    Review_rating: reviewRating,
+    PriceUnit: priceUnit,
+    PriceNumber: priceNumber,
+    PriceType: pricetype, 
+    Language: language,
+    Description:  description
+  }
+  return newNearbyExperience;
+}
+
+
+attractionIds.forEach(attractionId => {
+  let randLocation = { 
+    lat: chance.latitude({fixed: 2}),
     lng: chance.latitude({fixed: 2})
-};
+  };
+  let randAddress = chance.address({short_suffix: true});
+  let randWebsite = chance.email();
+  let randPhoneNumber = chance.phone()
+  let randEmail = chance.email();
+  let nearByRestaurants = [];
+  let nearByAttractions = [];
+  
+  for (let i = 0; i < 3; i += 1) {
+      nearByRestaurants.push(makeNearbyRestaurant(i, randLocation));
+      nearByAttractions.push(makeNearbyAttraction(i, randLocation));
+  }
+  let nearbyExperience = makeNearbyExperience();
+  
+  let newAttraction = {
+    attractionId: attractionId,
+    location: randLocation,
+    contact: {
+        address: randAddress,
+        website: randWebsite,
+        phoneNumber: randPhoneNumber,
+        Email: randEmail
+    },
+    nearByRestaurants: nearByRestaurants,
+    nearByAttractions: nearByAttractions,
+    NearByExperience: nearbyExperience
+  }
 
-console.log(makeNearbyRestaurant(1, testLatlong))
-
-// attractionIds.forEach(attractionId => {
-//   let randLocation = { 
-//     lat: chance.latitude({fixed: 2}),
-//     lng: chance.latitude({fixed: 2})
-//   };
-//   let randaddress = chance.address({short_suffix: true});
-//   let randWebsite = chance.email();
-//   let randPhoneNumber = chance.phone()
-//   let randEmail = chance.email();
-//   let nearByRestaurants = [];
-//   let nearByAttractions = [];
-// })
+  seedData.push(newAttraction);
+})
