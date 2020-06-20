@@ -17,8 +17,10 @@ let nearByAttractionsSchema = new mongoose.Schema({
     nearByAttractions: [
       {
         Id: Number,
-        Lat: Number,  
-        Long: Number,
+        location: {
+          lat: Number,
+          Lng: Number,
+        },
         Name: String,
         Image: String,
         Liked: Boolean,
