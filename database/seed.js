@@ -1,13 +1,23 @@
-const mongoose = require('mongoose');
-const db = require('./index.js');
-mongoose.Promise = global.Promise;
+const NearNearbyAttractions = require('./nearbyattractions.js');
+const Chance = require('chance');
 
-let nearByAttractionsSchema = new mongoose.Schema({
-    attractionId: String,
-    location: {
-      lat: Number,
-      Lng: Number,
-    },
+const getPaddedAttractionId = (num) =>  String(num).padStart(3, '0');
+
+const chance = new Chance();
+
+const seedData = [];
+
+const attractionIds = [];
+
+for (let i = 1; i <= 100; i += 1) {
+   attractionIds.push(String(i).padStart(3, 0));
+}
+
+attractionIds.forEach(attractionId => {
+  let lat = chance.lat
+    /*
+    lat: Number,
+    Long: Number,
     contact: {
       address: String,
       website: String,
@@ -39,17 +49,5 @@ let nearByAttractionsSchema = new mongoose.Schema({
       PriceType: String, 
       Language: String
     }
+
 })
-
-let NearbyAttraction = mongoose.model('NearByAttraction', nearByAttractionsSchema);
-
-//if the attraction Id is not found, null is returned
-let findAttraction = function(id) {
-  return NearbyAttraction.findOne({attractionId: id})
-}
-
-module.exports.NearbyAttraction = NearbyAttraction;
-module.exports.findAttraction = findAttraction;
-
-
-
