@@ -41,11 +41,11 @@ const makeNearbyRestaurant = function (idx, ParentLocation) {
   const liked = false;
   const reviewCount = chance.integer({ min: 1, max: 1000 });
   const reviewRating = chance.integer({ min: 0, max: 10 });
-  const type = restaurantTypes[chance.integer({ min: 0, max: restaurantTypes.length - 1 })];
+  const kind = restaurantTypes[chance.integer({ min: 0, max: restaurantTypes.length - 1 })];
   const price = priceIcons[chance.integer({ min: 0, max: priceIcons.length - 1 })];
 
   const newRestaurant = {
-    Id: idx,
+    id: idx,
     location: {
       lat,
       long,
@@ -55,7 +55,7 @@ const makeNearbyRestaurant = function (idx, ParentLocation) {
     liked,
     reviewCount,
     reviewRating,
-    type,
+    kind,
     price,
   };
   return newRestaurant;
@@ -72,7 +72,7 @@ const makeNearbyAttraction = function (idx, ParentLocation) {
   const liked = false;
   const reviewCount = chance.integer({ min: 1, max: 1000 });
   const reviewRating = chance.integer({ min: 0, max: 10 });
-  const type = 'bars & clubs';
+  const kind = 'bars & clubs';
 
   const newAttraction = {
     id: idx,
@@ -85,7 +85,7 @@ const makeNearbyAttraction = function (idx, ParentLocation) {
     liked,
     reviewCount,
     reviewRating,
-    type,
+    kind,
   };
   return newAttraction;
 };
@@ -97,7 +97,7 @@ const languages = ['English', 'French', 'Spanish'];
 const makeNearbyExperience = function () {
   const name = chance.company();
   const image = imageThumbs[chance.integer({ min: 0, max: restaurantTypes.length - 1 })];
-  const type = experienceTypes[chance.integer({ min: 0, max: experienceTypes.length - 1 })];
+  const kind = experienceTypes[chance.integer({ min: 0, max: experienceTypes.length - 1 })];
   const reviewCount = chance.integer({ min: 1, max: 1000 });
   const reviewRating = chance.integer({ min: 0, max: 10 });
   const priceUnit = 'per adult';
@@ -109,7 +109,7 @@ const makeNearbyExperience = function () {
   const newNearbyExperience = {
     name,
     image,
-    type,
+    kind,
     reviewCount,
     reviewRating,
     priceUnit,
@@ -125,8 +125,8 @@ attractionIds.forEach((attractionId) => {
   const lat = chance.latitude({ fixed: 2 });
   const long = chance.longitude({ fixed: 2 });
   const location = {
-    long,
     lat,
+    long,
   };
   const address = chance.address({ short_suffix: true });
   const website = chance.email();
@@ -154,7 +154,10 @@ attractionIds.forEach((attractionId) => {
   };
 
   seedData.push(newAttraction);
+  
 });
+
+// console.log(seedData[0])
 
 NearbyAttractions.NearbyAttraction.create(seedData)
   .then(() => console.log('created seed data'))
