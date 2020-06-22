@@ -14,7 +14,7 @@ const nearByAttractionsSchema = new mongoose.Schema({
     address: String,
     website: String,
     phoneNumber: String,
-    Email: String,
+    email: String,
   },
   nearByRestaurants: [
     {
