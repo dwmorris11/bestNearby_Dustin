@@ -75,7 +75,7 @@ const makeNearbyAttraction = function (idx, ParentLocation) {
   const type = 'bars & clubs';
 
   const newAttraction = {
-    Id: idx,
+    id: idx,
     location: {
       lat,
       long,
