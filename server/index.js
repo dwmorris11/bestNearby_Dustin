@@ -1,7 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
-const routes = require('./routehandlers.js')
+const routes = require('./routehandlers.js');
+
 const router = express.Router();
 
 const dist = path.resolve(__dirname, '..', 'client', 'dist');
