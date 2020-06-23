@@ -101,7 +101,7 @@ const makeNearbyExperience = function () {
   const reviewCount = chance.integer({ min: 1, max: 1000 });
   const reviewRating = chance.integer({ min: 0, max: 10 });
   const priceUnit = 'per adult';
-  const pricetype = '$';
+  const priceType = '$';
   const language = languages[chance.integer({ min: 0, max: languages.length - 1 })];
   const priceNumber = chance.integer({ min: 50, max: 500 });
   const description = chance.paragraph({ sentences: 3 });
@@ -114,7 +114,7 @@ const makeNearbyExperience = function () {
     reviewRating,
     priceUnit,
     priceNumber,
-    pricetype,
+    priceType,
     language,
     description,
   };
