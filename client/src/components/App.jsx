@@ -4,21 +4,44 @@ import axios from 'axios';
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {}
+    this.state = {
+      attractionId: '',
+      contact: '',
+      location: '',
+      nearByAttractions: [],
+      nearByRestaurants: [],
+      nearByExperience: [],
+    }
+    
+    this.fetchData = this.fetchData.bind(this);
   }
 
   fetchData() {
-    axios.get('localhost:3003/api/nearbyattractions/004')
-      .then((data) => console.log(data))
+    axios.get('api/nearbyattractions/001')
+      .then((data) => {
+        const attractionDoc = data.data;
+        this.setState({
+          attractionId: attractionDoc.attractionId,
+          contact: attractionDoc.contact,
+          location: attractionDoc.location,
+          nearByAttractions: attractionDoc.nearByAttractions,
+          nearByRestaurants: attractionDoc.nearByRestaurants,
+          nearByExperience: attractionDoc.nearbyExperience,
+        })
+        console.log(this.state)
+      })
   }
 
-  onComponentDidMount() {
-    this.fetchData();
+  componentDidMount() {
+    this.fetchData()
+    
   }
 
   render() {
     return (
+      <div>
       <div>Start Up</div>
+      </div>
     )
   }
 }
