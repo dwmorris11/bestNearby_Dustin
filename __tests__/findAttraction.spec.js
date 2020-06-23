@@ -86,7 +86,8 @@ describe("FindAttractionbyId interacts with database", () => {
     })
   test("findAttraction should return attraction document at the provided id", (done) => {
     return routes.findAttractionById({params: { attractionId: 200 } }, mockRes, (err, data) => {
-      expect(data.location.lat).toBe(45);
+      expect(data).not.toBe(null);
+      expect(err).toBe(null);
       done();
     })
   }); 

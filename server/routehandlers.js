@@ -15,4 +15,3 @@ module.exports.findAttractionById = (req, res, testCallback) => {
       testCallback(err);
     });
 };
-
