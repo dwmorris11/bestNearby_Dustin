@@ -8,7 +8,7 @@ class App extends React.Component {
   }
 
   fetchData() {
-    axios.get('/api/nearbyattractions/004')
+    axios.get('localhost:3003/api/nearbyattractions/004')
       .then((data) => console.log(data))
   }
 
