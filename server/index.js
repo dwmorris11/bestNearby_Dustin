@@ -12,7 +12,7 @@ app.use(express.static(dist));
 app.use(bodyParser.json());
 app.use(router);
 
-app.get('/api/nearbyattractions/:attractionId', routes.findAttractionId);
+app.get('/api/nearbyattractions/:attractionId', routes.findAttractionById);
 
 const port = 3003;
 

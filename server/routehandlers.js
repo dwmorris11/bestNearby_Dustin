@@ -1,6 +1,6 @@
 const db = require('../database/nearbyattractions.js');
 
-module.exports.findAttractionId = (req, res, testCallback = () => {}) => {
+module.exports.findAttractionById = (req, res, testCallback) => {
   const attractionID = req.params.attractionId;
   db.findAttraction(attractionID)
     .then((data) => {
