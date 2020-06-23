@@ -7,6 +7,15 @@ class App extends React.Component {
     this.state = {}
   }
 
+  fetchData() {
+    axios.get('/api/nearbyattractions/004')
+      .then((data) => console.log(data))
+  }
+
+  onComponentDidMount() {
+    this.fetchData();
+  }
+
   render() {
     return (
       <div>Start Up</div>
