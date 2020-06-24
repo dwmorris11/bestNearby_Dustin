@@ -1,9 +1,9 @@
 import React from 'react';
 import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import App from '../../client/src/components/App';
-import CurrentAttInfo from '../../client/src/components/CurrentAttinfo';
-import BestNearByContainer from '../../client/src/components/BestNearByContainer';
+import App from '../../client/src/components/App.jsx';
+import CurrentAttInfo from '../../client/src/components/CurrentAttInfo.jsx';
+import BestNearByContainer from '../../client/src/components/BestNearByContainer.jsx';
 
 Enzyme.configure({ adapter: new Adapter() })
 const shallow = Enzyme.shallow;

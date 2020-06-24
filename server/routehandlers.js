@@ -1,4 +1,4 @@
-const db = require('../database/nearbyattractions.js');
+const db = require('../database/NearbyAttractions.js');
 
 module.exports.findAttractionById = (req, res, testCallback) => {
   const attractionID = req.params.attractionId;
