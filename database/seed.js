@@ -34,8 +34,8 @@ for (let i = 0; i < 15; i += 1) {
 }
 
 const makeNearbyRestaurant = function (idx, ParentLocation) {
-  const lat = ParentLocation.lat + chance.floating({ min: -1, max: 1, fixed: 2 });
-  const long = ParentLocation.long + chance.floating({ min: -1, max: 1, fixed: 2 });
+  const lat = ParentLocation.lat + chance.floating({ min: -0.1, max: 0.1, fixed: 3 });
+  const long = ParentLocation.long + chance.floating({ min: -0.1, max: 0.1, fixed: 3 });
   const name = getRandomName();
   const image = imageThumbs[chance.integer({ min: 0, max: restaurantTypes.length - 1 })];
   const liked = false;
@@ -64,8 +64,8 @@ const makeNearbyRestaurant = function (idx, ParentLocation) {
 const barSuffixes = ['Lounge', 'Hideaway', 'Cantina', 'Club', 'Pub', 'Hangout'];
 
 const makeNearbyAttraction = function (idx, ParentLocation) {
-  const lat = ParentLocation.lat + chance.floating({ min: -1, max: 1, fixed: 2 });
-  const long = ParentLocation.long + chance.floating({ min: -1, max: 1, fixed: 2 });
+  const lat = ParentLocation.lat + chance.floating({ min: -0.1, max: 0.1, fixed: 3 });
+  const long = ParentLocation.long + chance.floating({ min: -0.1, max: 0.1, fixed: 3 });
   const name = `The ${chance.animal()} ${barSuffixes[chance.integer({ min: 0, max: barSuffixes.length - 1 })]}`;
   const image = imageThumbs[chance.integer({ min: 0, max: restaurantTypes.length - 1 })];
   // false because no user data is collected in this scope
@@ -122,8 +122,8 @@ const makeNearbyExperience = function () {
 };
 
 attractionIds.forEach((attractionId) => {
-  const lat = chance.latitude({ fixed: 2 });
-  const long = chance.longitude({ fixed: 2 });
+  const lat = chance.latitude({ fixed: 3 });
+  const long = chance.longitude({ fixed: 3 });
   const location = {
     lat,
     long,

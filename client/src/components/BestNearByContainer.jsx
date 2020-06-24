@@ -1,20 +1,23 @@
 import React from 'react';
+import BestNearByRestaurantDetails from './BestNearByRestaurantsDetail.jsx';
+import BestNearbyRestaurants from './BestNearByRestaurantsDetail.jsx';
 
 const getRandomNumRestaurants = () => Math.floor(Math.random()*20);
 const getRandomNumAttractions = () => Math.floor(Math.random()*10);
 const getRandomNearbyDist = () => Math.floor(Math.random() * (100 - 10)) / 10;
 
-const BestNearByContainer = () => {
+const BestNearByContainer = (props) => {
+    console.log(props)
   return (
     <div>
-      <div class="bestnearby-container">
-        <div class="bestnearby-header">Best nearby
+      <div className="bestnearby-container">
+        <div className="bestnearby-header">Best nearby
           <span id="bestnearby-header-icon-container">
           <span id="bestnearby-header-icon"></span>
           </span>
         </div>
       </div>
-      <div class="bestnearby-summarybar">
+      <div className="bestnearby-summarybar">
         <div id="bestnearby-summarybar-rest">
           <span id="bestnearby-summarybar-rest-val">{getRandomNumRestaurants()}</span>
           <span id="bestnearby-summarybar-rest-text">
@@ -30,6 +33,7 @@ const BestNearByContainer = () => {
             </span>
           </div>
       </div>
+      <BestNearbyRestaurants parentLocation={props.location} restaurants={props.restaurants}/>
     </div>
   )
 }

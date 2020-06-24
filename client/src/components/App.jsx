@@ -23,7 +23,7 @@ class App extends React.Component {
   }
 
   fetchData() {
-    axios.get('api/nearbyattractions/001')
+    axios.get('api/nearbyattractions/018')
       .then((data) => {
         const attractionDoc = data.data;
         this.setState({
@@ -42,7 +42,7 @@ class App extends React.Component {
     return (
       <div>
         <CurrrentAttInfo contact={this.state.contact}/>
-        <BestNearByContainer />
+        <BestNearByContainer location={this.state.location} attractions={this.state.nearByAttractions} experience={this.state.nearByExperience} restaurants={this.state.nearByRestaurants}/>
       </div>
     )
   }
