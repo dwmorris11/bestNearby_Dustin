@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import CurrrentAttInfo from './CurrentAttInfo.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -16,6 +17,10 @@ class App extends React.Component {
     this.fetchData = this.fetchData.bind(this);
   }
 
+  componentDidMount() {
+    this.fetchData()
+  }
+
   fetchData() {
     axios.get('api/nearbyattractions/001')
       .then((data) => {
@@ -28,19 +33,15 @@ class App extends React.Component {
           nearByRestaurants: attractionDoc.nearByRestaurants,
           nearByExperience: attractionDoc.nearbyExperience,
         })
-        console.log(this.state)
       })
-  }
-
-  componentDidMount() {
-    this.fetchData()
-    
+      .catch((err) => console.log(err))
   }
 
   render() {
     return (
       <div>
-      <div>Start Up</div>
+        <CurrrentAttInfo contact={this.state.contact}/>
+      
       </div>
     )
   }
