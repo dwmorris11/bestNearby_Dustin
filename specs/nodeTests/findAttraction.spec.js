@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
-const routes = require('../server/routehandlers.js');
-const db = require('../database/NearbyAttractions');
+const routes = require('../../server/routehandlers.js');
+const db = require('../../database/NearbyAttractions');
 
 // enzyme is recommended framefork for integration testing
 // jest is recommended unit testing
@@ -86,6 +86,7 @@ describe('FindAttractionbyId interacts with database', () => {
     return routes.findAttractionById({ params: { attractionId: 200 } }, mockRes, (err, data) => {
       expect(data).not.toBe(null);
       expect(err).toBe(null);
+      expect(data.attractionId).toBe('200');
       done();
     });
   });
