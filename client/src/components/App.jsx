@@ -41,7 +41,6 @@ class App extends React.Component {
     return (
       <div>
         <CurrrentAttInfo contact={this.state.contact}/>
-      
       </div>
     )
   }
