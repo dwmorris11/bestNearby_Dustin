@@ -3,6 +3,7 @@ import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import App from '../../client/src/components/App';
 import CurrentAttInfo from '../../client/src/components/CurrentAttinfo';
+import BestNearByContainer from '../../client/src/components/BestNearByContainer';
 
 Enzyme.configure({ adapter: new Adapter() })
 const shallow = Enzyme.shallow;
@@ -22,5 +23,23 @@ const mount = Enzyme.mount;
       }}/>);
       
       expect(wrapper.contains(<div id="current-attraction-location-header">Location</div>)).toEqual(true)
+    })
+
+    describe('<BestNearByContainer />', () => {
+      const wrapper = shallow(<BestNearByContainer />);
+      it('should have a random number of restaurant reviews less than 20', () => {
+        const text = wrapper.find('#bestnearby-summarybar-rest-val').text();
+        expect(Number(text)).toBeLessThanOrEqual(20);
+      })
+
+      it('should have a random number of attraction reviews less than 10', () => {
+        const text = wrapper.find('#bestnearby-summarybar-att-val').text();
+        expect(Number(text)).toBeLessThanOrEqual(10);
+      })
+      
+      it('should have a random number of attraction reviews less than 10', () => {
+        const text = wrapper.find('#bestnearby-summarybar-rest-text-dist').text().slice(7, 10);
+        expect(Number(text)).toBeLessThanOrEqual(10);
+      })
     })
   });
