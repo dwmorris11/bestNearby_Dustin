@@ -7,7 +7,7 @@
     "test": "jest --coverage",
     "build": "webpack -d --watch",
     "start": "nodemon server",
-    "eslint": "eslint ./",
+    "eslint": "eslint --ext .jsx .",
     "seed": "node database/seed.js"
   },
   "repository": {

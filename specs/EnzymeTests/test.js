@@ -1,11 +1,12 @@
 import React from 'react';
 import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import { shallow, mount } from 'enzyme';
 import App from '../../client/src/components/App';
 import CurrentAttInfo from '../../client/src/components/CurrentAttinfo';
 
 Enzyme.configure({ adapter: new Adapter() })
+const shallow = Enzyme.shallow;
+const mount = Enzyme.mount;
 
   test('Client App renders without crashing', () => {
     shallow(<App />);
