@@ -15,10 +15,53 @@
     "url": "git+https://github.com/Seattle-Navigators/tripadvisor_NearByAttractions_Jim.git"
   },
   "jest": {
-    "projects": [
-      "specs/enzymeTests/jest.config.js",
-      "specs/nodeTests/jest.config.js"
-    ]
+    "verbose": true,
+    "coverageDirectory": "specs/coverage",
+    "collectCoverage": true,
+    "coveragePathIgnorePatterns": [
+      "<rootDir>/node_modules/",
+      "<rootDir>/client/dist/",
+      "<rootDir>/client/src/style.css",
+      "<rootDir>/specs/",
+      "<rootDir>/.circleci/",
+      "<rootDir>/node_modules/",
+      "<rootDir>/.babelrc",
+      "<rootDir>/.eslintrc.js",
+      "<rootDir>/.gitignore",
+      "<rootDir>/package.json",
+      "<rootDir>/package-lock.json",
+      "<rootDir>/README.md",
+      "<rootDir>/webpack.config.js",
+      "<rootDir>/__mocks__",
+      "<rootDir>/database/seed.js",
+      "<rootDir>/coverage"
+    ],
+    "collectCoverageFrom": [
+      "**/*.{js,jsx}",
+      "!**/node_modules/**",
+      "!**/webpack/**",
+      "!**/src/**"
+    ],
+    "transform": {
+      "^.+\\.jsx?$": "babel-jest"
+    },
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "../../__mocks__/fileMock.js",
+      "\\.(css|less)$": "../../__mocks__/styleMock.js"
+    },
+    "moduleFileExtensions": [
+      "js",
+      "jsx"
+    ],
+    "setupFilesAfterEnv": [
+      "./specs/enzymeTests/setup.js",
+      "jest-enzyme"
+    ],
+    "testEnvironmentOptions": {
+      "enzymeAdapter": "react16"
+    },
+    "clearMocks": true,
+    "testURL":"http://127.0.0.1:3004"
   },
   "keywords": [],
   "author": "",
