@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import CurrrentAttInfo from './CurrentAttInfo.jsx';
+import BestNearByContainer from './BestNearByContainer.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -41,6 +42,7 @@ class App extends React.Component {
     return (
       <div>
         <CurrrentAttInfo contact={this.state.contact}/>
+        <BestNearByContainer />
       </div>
     )
   }
