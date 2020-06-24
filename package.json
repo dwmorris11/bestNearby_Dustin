@@ -54,7 +54,7 @@
       "jsx"
     ],
     "setupFilesAfterEnv": [
-      "./specs/enzymeTests/setup.js",
+      "<rootDir>/specs/enzymeTests/setup.js",
       "jest-enzyme"
     ],
     "testEnvironmentOptions": {
