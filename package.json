@@ -54,7 +54,6 @@
       "jsx"
     ],
     "setupFilesAfterEnv": [
-      "./specs/enzymeTests/setup.js",
       "jest-enzyme"
     ],
     "testEnvironmentOptions": {
