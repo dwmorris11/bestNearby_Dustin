@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import CurrrentAttInfo from './CurrentAttInfo.jsx';
-import BestNearByContainer from './BestNearByContainer.jsx';
+import BestNearByContainer from './BestNearByContainer';
 
 class App extends React.Component {
   constructor(props) {
