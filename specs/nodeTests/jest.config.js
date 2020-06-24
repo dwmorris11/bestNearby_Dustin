@@ -12,29 +12,27 @@ module.exports = {
   // cacheDirectory: "/private/var/folders/d8/jrvpztwj5tj1r7cwqllzngrm0000gn/T/jest_dx",
 
   // Automatically clear mock calls and instances between every test
-  // clearMocks: false,
+  clearMocks: true,
 
   // Indicates whether the coverage information should be collected while executing the test
-  // collectCoverage: false,
+  collectCoverage: true,
 
   // An array of glob patterns indicating a set of files for which coverage information should be collected
-  // collectCoverageFrom: undefined,
-
+  collectCoverageFrom: [
+    "**/*.{js,jsx}",
+  ],
   // The directory where Jest should output its coverage files
   coverageDirectory: "coverage",
 
   // An array of regexp pattern strings used to skip coverage collection
-  // coveragePathIgnorePatterns: [
-  //   "/node_modules/"
-  // ],
+  coveragePathIgnorePatterns: [
+    "/node_modules/"
+  ],
 
   // A list of reporter names that Jest uses when writing coverage reports
-  // coverageReporters: [
-  //   "json",
-  //   "text",
-  //   "lcov",
-  //   "clover"
-  // ],
+  coverageReporters: [
+    "text",
+  ],
 
   // An object that configures minimum threshold enforcement for coverage results
   // coverageThreshold: undefined,
@@ -66,14 +64,10 @@ module.exports = {
   // ],
 
   // An array of file extensions your modules use
-  // moduleFileExtensions: [
-  //   "js",
-  //   "json",
-  //   "jsx",
-  //   "ts",
-  //   "tsx",
-  //   "node"
-  // ],
+  moduleFileExtensions: [
+    "js",
+    "jsx",
+  ],
 
   // A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
   // moduleNameMapper: {},
@@ -109,7 +103,7 @@ module.exports = {
   // restoreMocks: false,
 
   // The root directory that Jest should scan for tests and modules within
-  // rootDir: undefined,
+  // rootDir: "specs/nodeTests",
 
   // A list of paths to directories that Jest should use to search for files in
   // roots: [
@@ -123,7 +117,9 @@ module.exports = {
   // setupFiles: [],
 
   // A list of paths to modules that run some code to configure or set up the testing framework before each test
-  // setupFilesAfterEnv: [],
+  setupFilesAfterEnv: [
+    "jest-enzyme"
+  ],
 
   // A list of paths to snapshot serializer modules Jest should use for snapshot testing
   // snapshotSerializers: [],
@@ -132,7 +128,7 @@ module.exports = {
   testEnvironment: "node",
 
   // Options that will be passed to the testEnvironment
-  // testEnvironmentOptions: {},
+  testEnvironmentOptions: {"enzymeAdapter": "react16"},
 
   // Adds a location field to test results
   // testLocationInResults: false,

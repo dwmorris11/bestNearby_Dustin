@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
-const routes = require('../server/routehandlers.js');
-const db = require('../database/NearbyAttractions');
+const routes = require('../../server/routehandlers.js');
+const db = require('../../database/NearbyAttractions');
 
 // enzyme is recommended framefork for integration testing
 // jest is recommended unit testing
