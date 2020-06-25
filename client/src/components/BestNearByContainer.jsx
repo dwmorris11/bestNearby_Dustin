@@ -1,19 +1,19 @@
 import React from 'react';
-import BestNearByRestaurantDetails from './BestNearByRestaurantsDetail.jsx';
-import BestNearbyRestaurants from './BestNearByRestaurantsDetail.jsx';
+import BestNearbyRestaurants from './BestNearByRestaurantsDetail';
+import PropTypes from 'prop-types';
 
-const getRandomNumRestaurants = () => Math.floor(Math.random()*20);
-const getRandomNumAttractions = () => Math.floor(Math.random()*10);
+const getRandomNumRestaurants = () => Math.floor(Math.random() * 20);
+const getRandomNumAttractions = () => Math.floor(Math.random() * 10);
 const getRandomNearbyDist = () => Math.floor(Math.random() * (100 - 10)) / 10;
 
-const BestNearByContainer = (props) => {
-    console.log(props)
+const BestNearByContainer = ({ location, restaurants }) => {
   return (
     <div>
       <div className="bestnearby-container">
-        <div className="bestnearby-header">Best nearby
+        <div className="bestnearby-header">
+          Best nearby
           <span id="bestnearby-header-icon-container">
-          <span id="bestnearby-header-icon"></span>
+            <span id="bestnearby-header-icon"></span>
           </span>
         </div>
       </div>
@@ -33,9 +33,17 @@ const BestNearByContainer = (props) => {
             </span>
           </div>
       </div>
-      <BestNearbyRestaurants parentLocation={props.location} restaurants={props.restaurants}/>
+      <BestNearbyRestaurants parentLocation={location} restaurants={restaurants} />
     </div>
   )
 }
+
+BestNearByContainer.propTypes = {
+  location: PropTypes.shape({
+      lat: PropTypes.Number,
+      long: PropTypes.Number,
+  }).isRequired,
+  restaurants: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
 
 export default BestNearByContainer;

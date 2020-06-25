@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import CurrrentAttInfo from './CurrentAttInfo.jsx';
+import CurrrentAttInfo from './CurrentAttInfo';
 import BestNearByContainer from './BestNearByContainer';
 
 class App extends React.Component {
@@ -13,19 +13,18 @@ class App extends React.Component {
       nearByAttractions: [],
       nearByRestaurants: [],
       nearByExperience: [],
-    }
-    
+    };
     this.fetchData = this.fetchData.bind(this);
   }
 
   componentDidMount() {
     this.fetchData()
-  }
+  };
 
   fetchData() {
     axios.get('api/nearbyattractions/018')
-      .then((data) => {
-        const attractionDoc = data.data;
+      .then((res) => {
+        const attractionDoc = res.data;
         this.setState({
           attractionId: attractionDoc.attractionId,
           contact: attractionDoc.contact,
@@ -36,16 +35,17 @@ class App extends React.Component {
         })
       })
       .catch((err) => console.log(err))
-  }
+  };
 
   render() {
+    const { location, nearByAttractions, nearByRestaurants, nearByExperience } = this.state
     return (
       <div>
-        <CurrrentAttInfo contact={this.state.contact}/>
-        <BestNearByContainer location={this.state.location} attractions={this.state.nearByAttractions} experience={this.state.nearByExperience} restaurants={this.state.nearByRestaurants}/>
+        <CurrrentAttInfo contact={this.state.contact} />
+        <BestNearByContainer location={location} attractions={nearByAttractions} experience={nearByExperience} restaurants={nearByRestaurants} />
       </div>
     )
   }
-}
+};
 
 export default App;

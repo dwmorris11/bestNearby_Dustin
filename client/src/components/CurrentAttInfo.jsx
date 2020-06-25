@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const CurrentAttInfo = (props) => {
   return (
@@ -27,6 +28,15 @@ const CurrentAttInfo = (props) => {
       </div>
     </div>
   );
+};
+
+CurrentAttInfo.propTypes = {
+  contact: PropTypes.shape({
+    address: PropTypes.string,
+    email: PropTypes.string,
+    phonenumber: PropTypes.string,
+    website: PropTypes.string,
+  }).isRequired,
 };
 
 export default CurrentAttInfo;

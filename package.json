@@ -60,7 +60,7 @@
       "enzymeAdapter": "react16"
     },
     "clearMocks": true,
-    "testURL":"http://127.0.0.1:3004"
+    "testURL": "http://127.0.0.1:3004"
   },
   "keywords": [],
   "author": "",
@@ -102,6 +102,7 @@
     "morgan": "^1.10.0",
     "nodemon": "^2.0.4",
     "path": "^0.12.7",
+    "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-test-renderer": "^16.13.1"
