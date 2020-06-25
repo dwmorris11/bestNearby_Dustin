@@ -44,5 +44,5 @@ const BestNearbyAttractions = ({ attractions, parentLocation }) => (
     </div>
   ); 
   
-
+  
 export default BestNearbyAttractions;

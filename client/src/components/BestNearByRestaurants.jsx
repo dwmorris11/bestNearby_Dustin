@@ -1,29 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import getWalkingDistance from './getWalkingDistance.js';
 
 const getReviewBubbles = (rating) => {
   // will need to return 5 cirlces with which cirlces empty or filled based on rating
   // rating runs from 0-10, an increase of 1 represents a half circle
-};
-
-const getWalkingDistance = (parentLoc, attLoc) => {
-  // distance measured in degree decimals
-  const distance = Math.abs(parentLoc.lat - attLoc.lat);
-  // approx. 5 miles
-  if (distance >= 0.07) {
-    return '45 min';
-  // approx. 3.5 miles
-  } else if (distance >= 0.05) {
-    return '30 min';
-  // approx. 2 miles
-  } else if (distance >= 0.03) {
-    return '15 min';
-  // approx. 1 mile
-  } else if (distance >= 0.01) {
-    return '10 min';
-  // less than a mile
-  }
-  return '5 min';
 };
 
 const BestNearbyRestaurants = ({ restaurants, parentLocation }) => (
