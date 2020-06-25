@@ -29,7 +29,7 @@ const getWalkingDistance = (parentLoc, attLoc) => {
 const BestNearbyRestaurants = ({ restaurants, parentLocation }) => (
   <div className="bestnearbyrestaurants-container">
     {restaurants.map((restaurant, idx) => (
-      <div className="bestnearbyrest" key={restaurant + Math.random()}>
+      <div className="bestnearbyrest" key={idx + Math.random()}>
         <div id="bestnearbyrest-thumb">
           <div id="bestnearbyrest-thumb-icon"></div>
           <div className="bestnearbyrest-thumb-image-container">
@@ -54,10 +54,10 @@ const BestNearbyRestaurants = ({ restaurants, parentLocation }) => (
               <span id="bestnearbyrest-distance-info">{getWalkingDistance(parentLocation, restaurant.location)}</span>
             </div>
             <div id="bestnearbyrest-details-price-type">
-              <span id="bestnearbyrest-details-price"> 
+              <span id="bestnearbyrest-details-price">
                 {restaurant.price}
               </span>
-              <span id="bestnearbyrest-details-type"> 
+              <span id="bestnearbyrest-details-type">
                 {restaurant.kind}
               </span>
             </div>
@@ -68,12 +68,12 @@ const BestNearbyRestaurants = ({ restaurants, parentLocation }) => (
   </div>
 );
 
-BestNearbyRestaurants.PropTypes = {
+BestNearbyRestaurants.propTypes = {
   restaurants: PropTypes.arrayOf(PropTypes.string).isRequired,
   parentLocation: PropTypes.shape({
     lat: PropTypes.number,
     long: PropTypes.number,
-  })
-}
+  }),
+};
 
 export default BestNearbyRestaurants;

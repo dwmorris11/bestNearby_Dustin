@@ -24,7 +24,7 @@ const BestNearByContainer = ({ location, restaurants }) => (
             <span id="bestnearby-summarybar-rest-text-dist">{`within ${getRandomNearbyDist()} miles`}</span>
           </span>
         </div>
-          <div id="bestnearby-summarybar-att">
+        <div id="bestnearby-summarybar-att">
             <span id="bestnearby-summarybar-att-val">{getRandomNumAttractions()}</span>
             <span id="bestnearby-summarybar-att-text">
               <span id="bestnearby-summarybar-att-text-1">Other Attractions</span>
@@ -34,7 +34,7 @@ const BestNearByContainer = ({ location, restaurants }) => (
       </div>
       <BestNearbyRestaurants parentLocation={location} restaurants={restaurants} />
     </div>
-  )
+);
 
 BestNearByContainer.propTypes = {
   location: PropTypes.shape({

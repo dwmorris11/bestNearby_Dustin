@@ -38,12 +38,16 @@ class App extends React.Component {
   }
 
   render() {
-    const { contact, location, nearByAttractions, nearByRestaurants, nearByExperience } = this.state;
+    const { 
+      contact, location, nearByAttractions, nearByRestaurants, nearByExperience 
+    } = this.state;
     return (
       <div>
         <CurrrentAttInfo contact={contact} />
-        <BestNearByContainer location={location} attractions={nearByAttractions} 
-          experience={nearByExperience} restaurants={nearByRestaurants} 
+        <BestNearByContainer location={location} 
+          attractions={nearByAttractions}
+          experience={nearByExperience}
+          restaurants={nearByRestaurants}
         />
       </div>
     );
