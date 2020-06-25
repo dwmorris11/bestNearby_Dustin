@@ -40,7 +40,7 @@
       "**/*.{js,jsx}",
       "!**/node_modules/**",
       "!**/webpack/**",
-      "!**/src/**"
+      "<rootDir>/client/src/*"
     ],
     "transform": {
       "^.+\\.jsx?$": "babel-jest"
