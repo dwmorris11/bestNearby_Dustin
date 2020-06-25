@@ -4,7 +4,7 @@ import Adapter from 'enzyme-adapter-react-16';
 import App from '../../client/src/components/App.jsx';
 import CurrentAttInfo from '../../client/src/components/CurrentAttInfo.jsx';
 import BestNearByContainer from '../../client/src/components/BestNearByContainer.jsx';
-import BestNearbyRestaurants from '../../client/src/components/BestNearbyRestaurantsDetail.jsx'
+import BestNearbyRestaurants from '../../client/src/components/BestNearByRestaurants.jsx'
 import { data } from '../../__mocks__/dataMock.js';
 
 Enzyme.configure({ adapter: new Adapter() })
