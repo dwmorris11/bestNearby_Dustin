@@ -2,8 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/App';
 
-// console.log(window.location.href)
+const currentUrl = new URL(window.location.href);
+const attractionId = currentUrl.pathname;
 
 ReactDOM.render(
-  <App />, document.getElementById('app'),
+  <App  attractionId={attractionId} />, 
+  document.getElementById('app'),
 );

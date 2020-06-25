@@ -1,13 +1,12 @@
 import React from 'react';
-import BestNearbyRestaurants from './BestNearByRestaurantsDetail';
 import PropTypes from 'prop-types';
+import BestNearbyRestaurants from './BestNearByRestaurantsDetail';
 
 const getRandomNumRestaurants = () => Math.floor(Math.random() * 20);
 const getRandomNumAttractions = () => Math.floor(Math.random() * 10);
 const getRandomNearbyDist = () => Math.floor(Math.random() * (100 - 10)) / 10;
 
-const BestNearByContainer = ({ location, restaurants }) => {
-  return (
+const BestNearByContainer = ({ location, restaurants }) => (
     <div>
       <div className="bestnearby-container">
         <div className="bestnearby-header">
@@ -36,12 +35,11 @@ const BestNearByContainer = ({ location, restaurants }) => {
       <BestNearbyRestaurants parentLocation={location} restaurants={restaurants} />
     </div>
   )
-}
 
 BestNearByContainer.propTypes = {
   location: PropTypes.shape({
-      lat: PropTypes.Number,
-      long: PropTypes.Number,
+    lat: PropTypes.number,
+    long: PropTypes.number,
   }).isRequired,
   restaurants: PropTypes.arrayOf(PropTypes.object).isRequired,
 };

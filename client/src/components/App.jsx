@@ -7,7 +7,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      attractionId: '',
+      attractionId: props.attractionId,
       contact: '',
       location: '',
       nearByAttractions: [],
@@ -18,11 +18,11 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    this.fetchData()
-  };
+    this.fetchData();
+  }
 
   fetchData() {
-    axios.get('api/nearbyattractions/018')
+    axios.get('/018/api/nearbyattractions')
       .then((res) => {
         const attractionDoc = res.data;
         this.setState({
@@ -32,20 +32,22 @@ class App extends React.Component {
           nearByAttractions: attractionDoc.nearByAttractions,
           nearByRestaurants: attractionDoc.nearByRestaurants,
           nearByExperience: attractionDoc.nearbyExperience,
-        })
+        });
       })
-      .catch((err) => console.log(err))
-  };
+      .catch((err) => console.log(err));
+  }
 
   render() {
-    const { location, nearByAttractions, nearByRestaurants, nearByExperience } = this.state
+    const { contact, location, nearByAttractions, nearByRestaurants, nearByExperience } = this.state;
     return (
       <div>
-        <CurrrentAttInfo contact={this.state.contact} />
-        <BestNearByContainer location={location} attractions={nearByAttractions} experience={nearByExperience} restaurants={nearByRestaurants} />
+        <CurrrentAttInfo contact={contact} />
+        <BestNearByContainer location={location} attractions={nearByAttractions} 
+          experience={nearByExperience} restaurants={nearByRestaurants} 
+        />
       </div>
-    )
+    );
   }
-};
+}
 
 export default App;

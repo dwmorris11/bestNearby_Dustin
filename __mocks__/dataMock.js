@@ -1,7 +1,7 @@
-module.exports = {
+module.exports.mock = {
     "location": {
-        "lat": 23.3,
-        "long": -46.69
+        "lat": 10,
+        "long": 10
     },
     "contact": {
         "address": "1297 Kokfe Pike",
@@ -24,8 +24,8 @@ module.exports = {
     "nearByRestaurants": [
         {
             "location": {
-                "lat": 23.32,
-                "long": -46.01
+                "lat": 10.05,
+                "long": 10.05
             },
             "_id": "5ef1744ec52b0815a6023d1c",
             "id": 0,
@@ -39,16 +39,16 @@ module.exports = {
         },
         {
             "location": {
-                "lat": 23.71,
-                "long": -46.769999999999996
+                "lat": 10.02,
+                "long": 10.02
             },
             "_id": "5ef1744ec52b0815a6023d1d",
             "id": 1,
             "image": "https://jwkfec2020.s3-us-west-2.amazonaws.com/FEC_images/FEC4.jpg",
             "name": "Barbara's Palace",
             "liked": false,
-            "reviewCount": 408,
-            "reviewRating": 4,
+            "reviewCount": 10.08,
+            "reviewRating": 10.08,
             "kind": "Mediterranean",
             "price": "$$$$"
         },

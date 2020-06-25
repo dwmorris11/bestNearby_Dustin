@@ -9,11 +9,11 @@ const dist = path.resolve(__dirname, '..', 'client', 'dist');
 
 const app = express();
 
-app.use(express.static(dist));
+app.use('/:attractionId', express.static(dist));
 app.use(bodyParser.json());
 app.use(router);
 
-app.get('/api/nearbyattractions/:attractionId', routes.findAttractionById);
+app.get('/:attractionId/api/nearbyattractions', routes.findAttractionById);
 
 const port = 3003;
 
