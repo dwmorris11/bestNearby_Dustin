@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import getWalkingDistance from './getWalkingDistance'
+import getWalkingDistance from './getWalkingDistance';
 
 const BestNearbyAttractions = ({ attractions, parentLocation }) => (
   <div className="bestnearbyattractions-container">
     {attractions.map((attraction, idx) => (
-      <div className="bestnearbyattraction" key={attraction + Math.random()}>
+      <div className="bestnearbyattraction" key={idx + Math.random()}>
         <div id="bestnearbyattraction-thumb">
-          <div id="bestnearbyattraction-thumb-icon"></div>
+          <div id="bestnearbyattraction-thumb-icon"/>
           <div className="bestnearbyattraction-thumb-image-container">
             <img alt="" className="bestnearbyattraction-thumb-image" src={attraction.image} />
           </div>
@@ -30,10 +30,10 @@ const BestNearbyAttractions = ({ attractions, parentLocation }) => (
               <span id="bestbearbyattraction-distance-info">{getWalkingDistance(parentLocation, attraction.location)}</span>
             </div>
             <div id="bestbearbyattraction-details-price-type">
-              <span id="bestbearbyattraction-details-price"> 
+              <span id="bestbearbyattraction-details-price">
                 {attraction.price}
               </span>
-              <span id="bestbearbyattraction-details-type"> 
+              <span id="bestbearbyattraction-details-type">
                 {attraction.kind}
               </span>
             </div>
@@ -42,14 +42,14 @@ const BestNearbyAttractions = ({ attractions, parentLocation }) => (
       </div>
     ))}
   </div>
-); 
+);
 
 BestNearbyAttractions.propTypes = {
-    attractions: PropTypes.arrayOf(PropTypes.object).isRequired,
-    parentLocation: PropTypes.shape({
-      lat: PropTypes.number,
-      long: PropTypes.number,
-    }),
-  };
-  
+  attractions: PropTypes.arrayOf(PropTypes.object).isRequired,
+  parentLocation: PropTypes.shape({
+    lat: PropTypes.number,
+    long: PropTypes.number,
+  }),
+};
+
 export default BestNearbyAttractions;
