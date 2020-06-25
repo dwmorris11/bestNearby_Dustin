@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import BestNearbyRestaurants from './BestNearByRestaurantsDetail';
+import BestNearbyRestaurants from './BestNearByRestaurants';
 
 const getRandomNumRestaurants = () => Math.floor(Math.random() * 20);
 const getRandomNumAttractions = () => Math.floor(Math.random() * 10);
