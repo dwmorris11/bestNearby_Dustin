@@ -29,7 +29,7 @@ const getWalkingDistance = (parentLoc, attLoc) => {
 const BestNearbyRestaurants = ({ restaurants, parentLocation }) => (
   <div className="bestnearbyrestaurants-container">
     {restaurants.map((restaurant, idx) => (
-      <div className="bestnearbyrest-details" key={restaurant + Math.random()}>
+      <div className="bestnearbyrest" key={restaurant + Math.random()}>
         <div id="bestnearbyrest-thumb">
           <div id="bestnearbyrest-thumb-icon"></div>
           <div className="bestnearbyrest-thumb-image-container">
@@ -49,15 +49,15 @@ const BestNearbyRestaurants = ({ restaurants, parentLocation }) => (
             </div>
           </div>
           <div className="bestnearbyrest-details">
-            <div id="bestbearbyrest-details-distance">
-              <span id="bestbearbyrest-distance-icon">walking person icon</span>
-              <span id="bestbearbyrest-distance-info">{getWalkingDistance(parentLocation, restaurant.location)}</span>
+            <div id="bestnearbyrest-details-distance">
+              <span id="bestnearbyrest-distance-icon">walking person icon</span>
+              <span id="bestnearbyrest-distance-info">{getWalkingDistance(parentLocation, restaurant.location)}</span>
             </div>
-            <div id="bestbearbyrest-details-price-type">
-              <span id="bestbearbyrest-details-price"> 
+            <div id="bestnearbyrest-details-price-type">
+              <span id="bestnearbyrest-details-price"> 
                 {restaurant.price}
               </span>
-              <span id="bestbearbyrest-details-type"> 
+              <span id="bestnearbyrest-details-type"> 
                 {restaurant.kind}
               </span>
             </div>
