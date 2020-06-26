@@ -109,5 +109,13 @@ const mount = Enzyme.mount;
         const container = wrapper.find(".nearbyexperience-container-outer");
         expect(container.exists()).toEqual(true);
       })
+
+      test('Should have a price within $500-$50 and have unit, per adult', () => {
+        const text = wrapper.find(".experience-price-amount").text();
+        expect(text[0]).toMatch('$');
+        expect(Number(text.slice(1, -9))).toBeLessThanOrEqual(500);
+        expect(Number(text.slice(1, -9))).toBeGreaterThanOrEqual(50);
+        expect(text.slice(-9)).toMatch('per adult');
+      })
     });
   });
