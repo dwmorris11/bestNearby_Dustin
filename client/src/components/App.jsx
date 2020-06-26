@@ -1,7 +1,11 @@
 import React from 'react';
 import axios from 'axios';
+import PropTypes from 'prop-types';
 import CurrrentAttInfo from './CurrentAttInfo';
 import BestNearByContainer from './BestNearByContainer';
+import BestNearByExperience from './BestNearByExperience';
+import Map from './Map';
+import '../../dist/style.css';
 
 class App extends React.Component {
   constructor(props) {
@@ -22,36 +26,49 @@ class App extends React.Component {
   }
 
   fetchData() {
-    axios.get('/018/api/nearbyattractions')
+    const { attractionId } = this.state;
+    axios.get(`${attractionId}api/nearbyattractions`)
       .then((res) => {
-        const attractionDoc = res.data;
+        const { 
+          contact, location, nearByAttractions, nearByRestaurants, nearByExperience 
+        } = res.data;
         this.setState({
-          attractionId: attractionDoc.attractionId,
-          contact: attractionDoc.contact,
-          location: attractionDoc.location,
-          nearByAttractions: attractionDoc.nearByAttractions,
-          nearByRestaurants: attractionDoc.nearByRestaurants,
-          nearByExperience: attractionDoc.nearbyExperience,
+          contact,
+          location,
+          nearByAttractions,
+          nearByRestaurants,
+          nearByExperience,
         });
       })
       .catch((err) => console.log(err));
   }
 
   render() {
-    const { 
-      contact, location, nearByAttractions, nearByRestaurants, nearByExperience 
+    const {
+      contact, location, nearByAttractions, nearByRestaurants, nearByExperience,
     } = this.state;
     return (
       <div>
+        <Map
+          location={location}
+          restaurants={nearByRestaurants}
+          attractions={nearByAttractions}
+        />
         <CurrrentAttInfo contact={contact} />
-        <BestNearByContainer location={location} 
+        <BestNearByContainer
+          location={location}
           attractions={nearByAttractions}
           experience={nearByExperience}
           restaurants={nearByRestaurants}
         />
+        <BestNearByExperience nearByExperience={nearByExperience} />
       </div>
     );
   }
 }
+
+App.propTypes = {
+  attractionId: PropTypes.string.isRequired,
+};
 
 export default App;

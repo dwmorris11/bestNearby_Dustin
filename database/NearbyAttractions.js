@@ -8,7 +8,7 @@ const nearByAttractionsSchema = new mongoose.Schema({
   attractionId: String,
   location: {
     lat: Number,
-    long: Number,
+    lng: Number,
   },
   contact: {
     address: String,
@@ -21,7 +21,7 @@ const nearByAttractionsSchema = new mongoose.Schema({
       id: Number,
       location: {
         lat: Number,
-        long: Number,
+        lng: Number,
       },
       image: String,
       name: String,
@@ -37,7 +37,7 @@ const nearByAttractionsSchema = new mongoose.Schema({
       id: Number,
       location: {
         lat: Number,
-        long: Number,
+        lng: Number,
       },
       image: String,
       name: String,
@@ -47,14 +47,14 @@ const nearByAttractionsSchema = new mongoose.Schema({
       kind: String,
     },
   ],
-  nearbyExperience: {
+  nearByExperience: {
     name: String,
     image: String,
     kind: String,
     reviewCount: Number,
     reviewRating: Number,
     priceUnit: String,
-    pricenumber: Number,
+    priceNumber: Number,
     priceType: String,
     language: String,
     description: String,

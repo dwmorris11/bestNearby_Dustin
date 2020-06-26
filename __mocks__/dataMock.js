@@ -15,6 +15,8 @@ module.exports.data = {
         kind: "Day Trips",
         reviewCount: 120,
         reviewRating: 5,
+        priceNumber: 302,
+        priceType: "$",
         priceUnit: "per adult",
         language: "French",
         description: "Lobwe munmiida jewo eli ekubu um fusidne rohnuvfiz usocub un iv weka up pes lab. Zosgulpag ledoluv egof zajso vok imfuli uc sowrugeb leih faim tashaiwo fosjomzo opo ar bidebji moizi. Vem cikavjol javonad bakuib kulad ij zo ihe imjasot ru isigig ma lo idde lazeruf giomi ira it."

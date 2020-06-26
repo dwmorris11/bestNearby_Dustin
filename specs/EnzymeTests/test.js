@@ -5,7 +5,8 @@ import App from '../../client/src/components/App.jsx';
 import CurrentAttInfo from '../../client/src/components/CurrentAttInfo.jsx';
 import BestNearByContainer from '../../client/src/components/BestNearByContainer.jsx';
 import BestNearbyAttractions from '../../client/src/components/BestNearByAtt.jsx';
-import BestNearbyRestaurants from '../../client/src/components/BestNearByRestaurants.jsx'
+import BestNearbyRestaurants from '../../client/src/components/BestNearByRestaurants.jsx';
+import NearByExperience from '../../client/src/components/BestNearByExperience.jsx';
 import { data } from '../../__mocks__/dataMock.js';
 
 Enzyme.configure({ adapter: new Adapter() })
@@ -99,6 +100,22 @@ const mount = Enzyme.mount;
           expect(Number(values)).toBeLessThanOrEqual(10);
         })
       });
-      
     })
+    describe('<NearByExperience />', () => {
+      const nearByExperience = data.nearbyExperience;
+      const wrapper = mount(<NearByExperience nearByExperience={nearByExperience}/>);
+      
+      test('Contianer should exist', () => {
+        const container = wrapper.find(".nearbyexperience-container-outer");
+        expect(container.exists()).toEqual(true);
+      })
+
+      test('Should have a price within $500-$50 and have unit, per adult', () => {
+        const text = wrapper.find(".experience-price-amount").text();
+        expect(text[0]).toMatch('$');
+        expect(Number(text.slice(1, -9))).toBeLessThanOrEqual(500);
+        expect(Number(text.slice(1, -9))).toBeGreaterThanOrEqual(50);
+        expect(text.slice(-9)).toMatch('per adult');
+      })
+    });
   });
