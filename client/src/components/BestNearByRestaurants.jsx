@@ -53,7 +53,7 @@ BestNearbyRestaurants.propTypes = {
   restaurants: PropTypes.arrayOf(PropTypes.object).isRequired,
   parentLocation: PropTypes.shape({
     lat: PropTypes.number,
-    long: PropTypes.number,
+    lng: PropTypes.number,
   }),
 };
 

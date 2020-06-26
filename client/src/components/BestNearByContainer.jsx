@@ -42,7 +42,7 @@ const BestNearByContainer = ({ location, restaurants, attractions }) => (
 BestNearByContainer.propTypes = {
   location: PropTypes.shape({
     lat: PropTypes.number,
-    long: PropTypes.number,
+    lng: PropTypes.number,
   }).isRequired,
   restaurants: PropTypes.arrayOf(PropTypes.object).isRequired,
 };

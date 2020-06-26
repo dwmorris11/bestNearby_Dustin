@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import CurrrentAttInfo from './CurrentAttInfo';
 import BestNearByContainer from './BestNearByContainer';
+import Map from './Map'
 
 class App extends React.Component {
   constructor(props) {
@@ -49,6 +50,7 @@ class App extends React.Component {
           experience={nearByExperience}
           restaurants={nearByRestaurants}
         />
+        <Map location={location} restaurants={nearByRestaurants} attractions={nearByAttractions}/>
       </div>
     );
   }
