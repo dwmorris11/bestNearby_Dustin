@@ -2,7 +2,8 @@ import React from 'react';
 import axios from 'axios';
 import CurrrentAttInfo from './CurrentAttInfo';
 import BestNearByContainer from './BestNearByContainer';
-import Map from './Map'
+import Map from './Map';
+import MapContainer from './newMapCont';
 
 class App extends React.Component {
   constructor(props) {
@@ -44,6 +45,7 @@ class App extends React.Component {
     } = this.state;
     return (
       <div>
+        <MapContainer />
         <CurrrentAttInfo contact={contact} />
         <BestNearByContainer location={location} 
           attractions={nearByAttractions}
