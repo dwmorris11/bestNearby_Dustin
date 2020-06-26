@@ -5,7 +5,8 @@ import App from '../../client/src/components/App.jsx';
 import CurrentAttInfo from '../../client/src/components/CurrentAttInfo.jsx';
 import BestNearByContainer from '../../client/src/components/BestNearByContainer.jsx';
 import BestNearbyAttractions from '../../client/src/components/BestNearByAtt.jsx';
-import BestNearbyRestaurants from '../../client/src/components/BestNearByRestaurants.jsx'
+import BestNearbyRestaurants from '../../client/src/components/BestNearByRestaurants.jsx';
+import NearByExperience from '../../client/src/components/BestNearByExperience.jsx';
 import { data } from '../../__mocks__/dataMock.js';
 
 Enzyme.configure({ adapter: new Adapter() })
@@ -100,5 +101,14 @@ const mount = Enzyme.mount;
         })
       });
     })
-    
+    describe('<NearByExperience />', () => {
+      const nearByExperience = data.nearbyExperience;
+      const wrapper = mount(<NearByExperience nearByExperience={nearByExperience}/>);
+      
+      test('Contianer should exist', () => {
+        const container = wrapper.find(".nearbyexperience-container-outer")
+        expect(container.exists()).toEqual(true);
+      })
+    })
+
   });
