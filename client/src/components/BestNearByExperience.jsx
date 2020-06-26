@@ -50,6 +50,19 @@ const NearByExperience = ({ nearByExperience }) => {
       </div>
     </div>
   )
-}
+};
+
+NearByExperience.PropTypes = {
+  nearByExperience: PropTypes.shape({
+    name: PropTypes.string,
+    image: PropTypes.string,
+    kind: PropTypes.string,
+    reviewCount: PropTypes.number,
+    reviewRating: PropTypes.number,
+    priceUnit: PropTypes.string,
+    priceType: PropTypes.string,
+    description: PropTypes.string,
+  }).isRequired,
+};
 
 export default NearByExperience;

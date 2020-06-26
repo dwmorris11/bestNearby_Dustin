@@ -106,9 +106,8 @@ const mount = Enzyme.mount;
       const wrapper = mount(<NearByExperience nearByExperience={nearByExperience}/>);
       
       test('Contianer should exist', () => {
-        const container = wrapper.find(".nearbyexperience-container-outer")
+        const container = wrapper.find(".nearbyexperience-container-outer");
         expect(container.exists()).toEqual(true);
       })
-    })
-
+    });
   });
