@@ -47,7 +47,7 @@ const nearByAttractionsSchema = new mongoose.Schema({
       kind: String,
     },
   ],
-  nearbyExperience: {
+  nearByExperience: {
     name: String,
     image: String,
     kind: String,

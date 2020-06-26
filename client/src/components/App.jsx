@@ -1,10 +1,12 @@
 import React from 'react';
 import axios from 'axios';
+import PropTypes from 'prop-types';
 import CurrrentAttInfo from './CurrentAttInfo';
 import BestNearByContainer from './BestNearByContainer';
-import BestNearByExperience from './BestNearByExperience.jsx'
+import BestNearByExperience from './BestNearByExperience';
 import Map from './Map';
 import '../../dist/style.css';
+import NearByExperience from './BestNearByExperience';
 
 class App extends React.Component {
   constructor(props) {
@@ -27,14 +29,15 @@ class App extends React.Component {
   fetchData() {
     axios.get(`${this.state.attractionId}api/nearbyattractions`)
       .then((res) => {
+        const { attractionId, contact, location, nearByAttractions, nearByRestaurants, nearByExperience} = res.data;
         const attractionDoc = res.data;
         this.setState({
-          attractionId: attractionDoc.attractionId,
-          contact: attractionDoc.contact,
-          location: attractionDoc.location,
-          nearByAttractions: attractionDoc.nearByAttractions,
-          nearByRestaurants: attractionDoc.nearByRestaurants,
-          nearByExperience: attractionDoc.nearbyExperience,
+          attractionId,
+          contact,
+          location,
+          nearByAttractions,
+          nearByRestaurants,
+          nearByExperience,
         });
       })
       .catch((err) => console.log(err));
@@ -61,5 +64,7 @@ class App extends React.Component {
     );
   }
 }
-
+App.PropTypes = {
+  attractionId: PropTypes.string.isRequired,
+}
 export default App;

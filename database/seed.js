@@ -138,7 +138,7 @@ attractionIds.forEach((attractionId) => {
     nearByRestaurants.push(makeNearbyRestaurant(i, location));
     nearByAttractions.push(makeNearbyAttraction(i, location));
   }
-  const nearbyExperience = makeNearbyExperience();
+  const nearByExperience = makeNearbyExperience();
   const newAttraction = {
     attractionId,
     location,
@@ -150,7 +150,7 @@ attractionIds.forEach((attractionId) => {
     },
     nearByRestaurants,
     nearByAttractions,
-    nearbyExperience,
+    nearByExperience,
   };
 
   seedData.push(newAttraction);

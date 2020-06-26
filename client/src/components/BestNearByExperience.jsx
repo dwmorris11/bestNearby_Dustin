@@ -52,7 +52,7 @@ const NearByExperience = ({ nearByExperience }) => {
   )
 };
 
-NearByExperience.PropTypes = {
+NearByExperience.propTypes = {
   nearByExperience: PropTypes.shape({
     name: PropTypes.string,
     image: PropTypes.string,
