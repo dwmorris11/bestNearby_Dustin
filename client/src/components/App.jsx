@@ -3,7 +3,7 @@ import axios from 'axios';
 import CurrrentAttInfo from './CurrentAttInfo';
 import BestNearByContainer from './BestNearByContainer';
 import Map from './Map';
-import MapContainer from './newMapCont';
+import '../../dist/style.css';
 
 class App extends React.Component {
   constructor(props) {
@@ -24,7 +24,7 @@ class App extends React.Component {
   }
 
   fetchData() {
-    axios.get('/018/api/nearbyattractions')
+    axios.get(`${this.state.attractionId}api/nearbyattractions`)
       .then((res) => {
         const attractionDoc = res.data;
         this.setState({
@@ -45,7 +45,6 @@ class App extends React.Component {
     } = this.state;
     return (
       <div>
-        <MapContainer />
         <CurrrentAttInfo contact={contact} />
         <BestNearByContainer location={location} 
           attractions={nearByAttractions}

@@ -1,0 +1,11 @@
+#map {
+    height: 1000px;
+    width: 1000px;
+    border-width: 10px;
+    color: brown;
+}
+
+#current-attraction-location-header{
+   border-width: 10px;
+    color: brown;
+}

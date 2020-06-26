@@ -1,6 +1,7 @@
 import React from 'react';
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
-import key from '../../../MapAPI';
+import key from '../../../MapAPI'
+import { getAreaOfPolygon } from 'geolib';
 
 const style = {
   width: '300px',
@@ -25,7 +26,7 @@ const style = {
 //     }
 //   }
  
-const MapContainer = ({ location, attractions, restaurants }) => {
+  const MapContainer = ({ location, attractions, restaurants }) => {
   return (
     <div className="map">
       <Map 
