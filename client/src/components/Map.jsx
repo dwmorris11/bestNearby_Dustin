@@ -1,7 +1,6 @@
 import React from 'react';
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 import key from '../../../MapAPI'
-import { getAreaOfPolygon } from 'geolib';
 
 const style = {
   width: '300px',
@@ -37,10 +36,6 @@ const style = {
       >
         <Marker 
           position={location}
-          icon={{
-            url: "https://previews.123rf.com/images/siamimages/siamimages1604/siamimages160401095/55225205-5-star-hotel-icon-illustration-design.jpg",
-            scaledSize: new google.maps.Size(30, 30),
-          }}
         />
         {attractions.map((attraction) => {
           return (

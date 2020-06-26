@@ -4,10 +4,10 @@ import getWalkingDistance from './getWalkingDistance';
 
 const BestNearbyAttractions = ({ attractions, parentLocation }) => (
   <div className="bestnearbyattractions-container">
-    {attractions.map((attraction, idx) => (
-      <div className="bestnearbyattraction" key={idx + Math.random()}>
+    {attractions.map((attraction) => (
+      <div className="bestnearbyattraction" key={attraction + Math.random()}>
         <div id="bestnearbyattraction-thumb">
-          <div id="bestnearbyattraction-thumb-icon"/>
+          <div id="bestnearbyattraction-thumb-icon" />
           <div className="bestnearbyattraction-thumb-image-container">
             <img alt="" className="bestnearbyattraction-thumb-image" src={attraction.image} />
           </div>
@@ -49,7 +49,7 @@ BestNearbyAttractions.propTypes = {
   parentLocation: PropTypes.shape({
     lat: PropTypes.number,
     lng: PropTypes.number,
-  }),
+  }).isRequired,
 };
 
 export default BestNearbyAttractions;

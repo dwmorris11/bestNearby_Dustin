@@ -6,7 +6,6 @@ import BestNearByContainer from './BestNearByContainer';
 import BestNearByExperience from './BestNearByExperience';
 import Map from './Map';
 import '../../dist/style.css';
-import NearByExperience from './BestNearByExperience';
 
 class App extends React.Component {
   constructor(props) {
@@ -27,12 +26,13 @@ class App extends React.Component {
   }
 
   fetchData() {
-    axios.get(`${this.state.attractionId}api/nearbyattractions`)
+    const { attractionId } = this.state;
+    axios.get(`${attractionId}api/nearbyattractions`)
       .then((res) => {
-        const { attractionId, contact, location, nearByAttractions, nearByRestaurants, nearByExperience} = res.data;
-        const attractionDoc = res.data;
+        const { 
+          contact, location, nearByAttractions, nearByRestaurants, nearByExperience 
+        } = res.data;
         this.setState({
-          attractionId,
           contact,
           location,
           nearByAttractions,
@@ -44,27 +44,31 @@ class App extends React.Component {
   }
 
   render() {
-    const { 
-      contact, location, nearByAttractions, nearByRestaurants, nearByExperience 
+    const {
+      contact, location, nearByAttractions, nearByRestaurants, nearByExperience,
     } = this.state;
     return (
       <div>
-        <Map location={location} 
-          restaurants={nearByRestaurants} 
+        <Map
+          location={location}
+          restaurants={nearByRestaurants}
           attractions={nearByAttractions}
         />
         <CurrrentAttInfo contact={contact} />
-        <BestNearByContainer location={location} 
+        <BestNearByContainer
+          location={location}
           attractions={nearByAttractions}
           experience={nearByExperience}
           restaurants={nearByRestaurants}
         />
-        <BestNearByExperience nearByExperience={nearByExperience}/>
+        <BestNearByExperience nearByExperience={nearByExperience} />
       </div>
     );
   }
 }
-App.PropTypes = {
+
+App.propTypes = {
   attractionId: PropTypes.string.isRequired,
-}
+};
+
 export default App;

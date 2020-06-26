@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import getWalkingDistance from './getWalkingDistance.js';
+import getWalkingDistance from './getWalkingDistance';
 
 const getReviewBubbles = (rating) => {
   // will need to return 5 cirlces with which cirlces empty or filled based on rating
@@ -9,10 +9,10 @@ const getReviewBubbles = (rating) => {
 
 const BestNearbyRestaurants = ({ restaurants, parentLocation }) => (
   <div className="bestnearbyrestaurants-container">
-    {restaurants.map((restaurant, idx) => (
-      <div className="bestnearbyrest" key={idx + Math.random()}>
+    {restaurants.map((restaurant) => (
+      <div className="bestnearbyrest" key={restaurant + Math.random()}>
         <div id="bestnearbyrest-thumb">
-          <div id="bestnearbyrest-thumb-icon"></div>
+          <div id="bestnearbyrest-thumb-icon" />
           <div className="bestnearbyrest-thumb-image-container">
             <img alt="" className="bestnearbyrest-thumb-image" src={restaurant.image} />
           </div>
@@ -54,7 +54,7 @@ BestNearbyRestaurants.propTypes = {
   parentLocation: PropTypes.shape({
     lat: PropTypes.number,
     lng: PropTypes.number,
-  }),
+  }).isRequired,
 };
 
 export default BestNearbyRestaurants;

@@ -54,7 +54,7 @@ const nearByAttractionsSchema = new mongoose.Schema({
     reviewCount: Number,
     reviewRating: Number,
     priceUnit: String,
-    pricenumber: Number,
+    priceNumber: Number,
     priceType: String,
     language: String,
     description: String,
