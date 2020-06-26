@@ -1,6 +1,6 @@
-#map {
-    height: 1000px;
-    width: 1000px;
+.map {
+    height: 372px;
+    width: 100%;
     border-width: 10px;
     color: brown;
 }

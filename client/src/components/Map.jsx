@@ -1,11 +1,11 @@
 import React from 'react';
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
-// import key from '../../../MapAPI'
-const key = 'dummykey'
+import key from '../../../MapAPI'
+
 
 const style = {
-  width: '300px',
-  height: '300px'
+  width: '100%',
+  height: '372px'
 }
 
 
