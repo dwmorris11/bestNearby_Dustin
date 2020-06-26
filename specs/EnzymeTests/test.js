@@ -99,6 +99,6 @@ const mount = Enzyme.mount;
           expect(Number(values)).toBeLessThanOrEqual(10);
         })
       });
-      
     })
+    
   });
