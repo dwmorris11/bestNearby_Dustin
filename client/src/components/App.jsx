@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import CurrrentAttInfo from './CurrentAttInfo';
 import BestNearByContainer from './BestNearByContainer';
+import BestNearByExperience from './BestNearByExperience.jsx'
 import Map from './Map';
 import '../../dist/style.css';
 
@@ -45,13 +46,17 @@ class App extends React.Component {
     } = this.state;
     return (
       <div>
+        <Map location={location} 
+          restaurants={nearByRestaurants} 
+          attractions={nearByAttractions}
+        />
         <CurrrentAttInfo contact={contact} />
         <BestNearByContainer location={location} 
           attractions={nearByAttractions}
           experience={nearByExperience}
           restaurants={nearByRestaurants}
         />
-        <Map location={location} restaurants={nearByRestaurants} attractions={nearByAttractions}/>
+        <BestNearByExperience nearByExperience={nearByExperience}/>
       </div>
     );
   }
