@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faWalking } from "@fortawesome/free-solid-svg-icons"
+import { faWalking, faCircle, faDotCircle } from "@fortawesome/free-solid-svg-icons"
 import getWalkingDistance from './getWalkingDistance';
+import Rating from 'react-rating';
 
 const getReviewBubbles = (rating) => {
   // will need to return 5 cirlces with which cirlces empty or filled based on rating
@@ -24,7 +25,16 @@ const BestNearbyRestaurants = ({ restaurants, parentLocation }) => (
           <div id="bestnearbyrest-review">
             <div id="bestnearbyrest-review-container">
               <span id="bestnearbyrest-review-bubbles">
-                {restaurant.reviewRating}
+                <Rating 
+                  fullSymbol="fa fa-circle"
+                  emptySymbol="fa fa-circle-o"
+                  id="bestnearbyrest-review-bubbles" 
+                  readonly={true}  
+                  start={0} 
+                  stop={5} 
+                  step={1} 
+                  initialRating={restaurant.reviewRating / 2}
+                />
               </span>
               <span id="bestnearbyrest-review-count">
                 (
