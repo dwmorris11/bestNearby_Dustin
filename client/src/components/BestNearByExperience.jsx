@@ -24,12 +24,14 @@ const NearByExperience = ({ nearByExperience }) => (
           {nearByExperience.name}
         </a>
         <div className="experience-ratings-container">
-          <span className="experience-rating-bubbles">
-            {getBubbleRating(nearByExperience.reviewRating)}
-          </span>
-          <span className="experience-rating-count">
-            {nearByExperience.reviewCount}
-          </span>
+          <div className="experience-review-container">
+            <span className="experience-rating-bubbles">
+              {getBubbleRating(nearByExperience.reviewRating)}
+            </span>
+            <span className="experience-rating-count">
+              {`${nearByExperience.reviewCount} reviews`}
+            </span>
+          </div>
           <div className="experience-language-container">
             <img alt="google" src="https://static.tacdn.com/img2/google/powered_by_google_translate.png" />
           </div>

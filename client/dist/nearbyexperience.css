@@ -77,6 +77,13 @@
     align-self: stretch;
     padding-top: 4px;
 }
+
+.experience-rating-count {
+    margin: 0 4px;
+    font-size: 14px;
+    line-height: 18px;
+    color: grey;
+}
 .experience-price-amount {
     flex-direction: column;
     color: black;
