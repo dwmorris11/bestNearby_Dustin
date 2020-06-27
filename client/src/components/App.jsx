@@ -6,6 +6,7 @@ import BestNearByContainer from './BestNearByContainer';
 import BestNearByExperience from './BestNearByExperience';
 import Map from './Map';
 import '../../dist/style.css';
+import '../../dist/nearbyatt.css';
 
 class App extends React.Component {
   constructor(props) {
