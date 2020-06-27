@@ -12,7 +12,9 @@ const NearByExperience = ({ nearByExperience }) => (
           <span className="icon-heart" />
         </span>
       </div>
-      <img alt="" className="experience-image" src={nearByExperience.image} />
+      <div className="experience-image-container">
+        <img alt="" className="experience-image" src={nearByExperience.image} />
+      </div>
       <div className="experience-details-container">
         <span className="experience-kind">
           {nearByExperience.kind}

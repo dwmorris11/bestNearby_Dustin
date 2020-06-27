@@ -8,6 +8,7 @@ import Map from './Map';
 import '../../dist/style.css';
 import '../../dist/nearbyatt.css';
 import '../../dist/currentatt.css'
+import '../../dist/nearbyexperience.css';
 
 class App extends React.Component {
   constructor(props) {
