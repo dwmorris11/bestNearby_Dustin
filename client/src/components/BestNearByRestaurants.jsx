@@ -1,14 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faWalking, faCircle, faDotCircle } from "@fortawesome/free-solid-svg-icons"
+import { faWalking } from "@fortawesome/free-solid-svg-icons"
 import getWalkingDistance from './getWalkingDistance';
 import Rating from 'react-rating';
-
-const getReviewBubbles = (rating) => {
-  // will need to return 5 cirlces with which cirlces empty or filled based on rating
-  // rating runs from 0-10, an increase of 1 represents a half circle
-};
 
 const BestNearbyRestaurants = ({ restaurants, parentLocation }) => (
   <div className="bestnearbyrestaurants-container">

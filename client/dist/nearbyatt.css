@@ -6,7 +6,7 @@
     display: block;
 }
 
-#bestnearbyattraction {
+.bestnearbyattraction {
     display: flex;
     margin-top: 8px;
     margin-right: 0;
