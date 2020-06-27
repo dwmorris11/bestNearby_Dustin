@@ -9,6 +9,7 @@ import '../../dist/style.css';
 import '../../dist/nearbyatt.css';
 import '../../dist/currentatt.css';
 import '../../dist/nearbyexperience.css';
+import '../../dist/nearbyrest.css'
 
 class App extends React.Component {
   constructor(props) {
