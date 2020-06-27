@@ -1,0 +1,16 @@
+import React from 'react';
+
+const getBubbleRating = (ratingNumber) => (
+  <Rating 
+    fullSymbol="fa fa-circle"
+    emptySymbol="fa fa-circle-o"
+    id="bestnearbyrest-review-bubbles" 
+    readonly={true}  
+    start={0} 
+    stop={5} 
+    step={1} 
+    initialRating={ratingNumber / 2}
+  />  
+)
+
+export default getBubbleRating;
