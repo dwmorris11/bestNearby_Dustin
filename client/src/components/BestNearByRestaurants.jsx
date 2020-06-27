@@ -23,7 +23,9 @@ const BestNearbyRestaurants = ({ restaurants, parentLocation }) => (
           <div id="bestnearbyrest-name">{restaurant.name}</div>
           <div id="bestnearbyrest-review">
             <div id="bestnearbyrest-review-container">
-              <span id="bestnearbyrest-review-bubbles">0 0 0 0 0</span>
+              <span id="bestnearbyrest-review-bubbles">
+                {restaurant.reviewRating}
+              </span>
               <span id="bestnearbyrest-review-count">
                 (
                 {restaurant.reviewCount}
