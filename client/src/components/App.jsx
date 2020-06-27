@@ -54,14 +54,16 @@ class App extends React.Component {
           restaurants={nearByRestaurants}
           attractions={nearByAttractions}
         />
-        <CurrrentAttInfo contact={contact} />
-        <BestNearByContainer
-          location={location}
-          attractions={nearByAttractions}
-          experience={nearByExperience}
-          restaurants={nearByRestaurants}
-        />
-        <BestNearByExperience nearByExperience={nearByExperience} />
+        <div className="not-map-components">
+          <CurrrentAttInfo contact={contact} />
+          <BestNearByContainer
+            location={location}
+            attractions={nearByAttractions}
+            experience={nearByExperience}
+            restaurants={nearByRestaurants}
+          />
+          <BestNearByExperience nearByExperience={nearByExperience} />
+        </div>
       </div>
     );
   }

@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faWalking } from "@fortawesome/free-solid-svg-icons"
 import getWalkingDistance from './getWalkingDistance';
 
 const getReviewBubbles = (rating) => {
@@ -31,7 +33,7 @@ const BestNearbyRestaurants = ({ restaurants, parentLocation }) => (
           </div>
           <div className="bestnearbyrest-details">
             <div id="bestnearbyrest-details-distance">
-              <span id="bestnearbyrest-distance-icon">walking person icon</span>
+              <FontAwesomeIcon id="bestnearbyrest-distance-icon" icon={faWalking} />
               <span id="bestnearbyrest-distance-info">{getWalkingDistance(parentLocation, restaurant.location)}</span>
             </div>
             <div id="bestnearbyrest-details-price-type">

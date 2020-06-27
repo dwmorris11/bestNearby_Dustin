@@ -8,7 +8,8 @@ const getRandomNumAttractions = () => Math.floor(Math.random() * 10);
 const getRandomNearbyDist = () => Math.floor(Math.random() * (100 - 10)) / 10;
 
 const BestNearByContainer = ({ location, restaurants, attractions }) => (
-  <div>
+  <div className="bestnearby-detail">
+    <header className="bestnearby-detail-header">
     <div className="bestnearby-container">
       <div className="bestnearby-header">
         Best nearby
@@ -33,8 +34,11 @@ const BestNearByContainer = ({ location, restaurants, attractions }) => (
         </span>
       </div>
     </div>
+    </header>
+    <div className="bestrestaurants-bestattractions-details">
     <BestNearbyRestaurants parentLocation={location} restaurants={restaurants} />
     <BestNearbyAttractions parentLocation={location} attractions={attractions} />
+    </div>
   </div>
 );
 

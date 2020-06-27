@@ -1,11 +1,133 @@
+/*Map */
 .map {
     height: 372px;
     width: 100%;
     border-width: 10px;
     color: brown;
 }
-
-#current-attraction-location-header{
-   border-width: 10px;
-    color: brown;
+/* Not Map */
+.not-map-components {
+    display: flex;
+    padding: 12px;
+    box-sizing: border-box;
+    font-family: 'Trip Sans', Arial, sans-serif !important;
 }
+
+/*current attract info */
+#current-attraction-info {
+    width: 25%;
+    padding-top: 24px;
+    padding-left: 12px;
+    box-sizing: border-box;
+}
+
+/* Nearby Rest Attract */
+.bestnearbyrestaurants-container {
+    width: 50%;
+    padding: 12px;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+}
+
+.bestnearby-detail {
+    width: 75%
+}
+
+.bestnearbyrest {
+    display: flex;
+    margin-top: 8px;
+    margin-right: 0;
+    width: auto;
+}
+#bestnearbyrest-thumb {
+    margin-right: 8px;
+    width: 86px;
+}
+.bestnearbyrest-thumb-image {
+    height: 77px;
+    width: 82px;
+    border-radius: 5px;
+    background-size: cover;
+    background-position: 50%;
+}
+.bestnearbyrest-info {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    height: 80px;
+}
+#bestnearbyrest-name {
+    font-family: 'Trip Sans', Arial, sans-serif !important;
+    flex-shrink: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 700;
+    color: #000a12;
+}
+#bestnearbyrest-distance-icon {
+    margin-right: 2px;
+}
+#bestnearbyrest-review-bubbles {
+    vertical-align: middle;
+    margin-left: 1px;
+    padding-bottom: 1px;
+    display: inline-block;
+    position: relative;
+}
+#bestnearbyrest-review-count {
+    margin: 0 4px;
+    font-size: 12px;
+    line-height: 14px;
+    color: #4a4a4a;
+}
+.bestnearbyrest-details {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    margin-right: 0;
+    padding-right: 0;
+    text-overflow: ellipsis;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 1px;
+    font-size: 12px;
+    line-height: 18px;
+    color: #767676;
+    margin: 0;
+    padding: 0;
+}
+#bestnearbyrest-details-distance {
+    margin-right: 2px;
+}
+#bestnearbyrest-details-price-type {
+    display: inline;
+    font-size: 12px;
+}
+#bestnearbyrest-details-type {
+    margin-left: 2px;
+}
+
+
+
+.bestrestaurants-bestattractions-details {
+    display: flex;
+}
+.bestnearbyattractions-container {
+    width: 50%;
+    padding: 12px;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+}
+
+.bestnearbyattraction {
+    display: flex;
+}
+
+/* Experience  */
+.nearbyexperience-container-outer {
+    width: 25%;
+}
+
