@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import getBubbleRating from './getBubbleRating';
 
 const NearByExperience = ({ nearByExperience }) => (
   <div className="nearbyexperience-container-outer">
@@ -24,7 +25,7 @@ const NearByExperience = ({ nearByExperience }) => (
         </a>
         <div className="experience-ratings-container">
           <span className="experience-rating-bubbles">
-            {nearByExperience.reviewRating}
+            {getBubbleRating(nearByExperience.reviewRating)}
           </span>
           <span className="experience-rating-count">
             {nearByExperience.reviewCount}

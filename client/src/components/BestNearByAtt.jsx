@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faWalking } from "@fortawesome/free-solid-svg-icons"
 import getWalkingDistance from './getWalkingDistance';
-import Rating from 'react-rating';
+import getBubbleRating from './getBubbleRating';
 
 const BestNearbyAttractions = ({ attractions, parentLocation }) => (
   <div className="bestnearbyattractions-container">
@@ -20,16 +20,7 @@ const BestNearbyAttractions = ({ attractions, parentLocation }) => (
           <div id="bestnearbyattraction-review">
             <div id="bestnearbyattraction-review-container">
               <span id="bestnearbyattraction-review-bubbles">
-                <Rating 
-                  fullSymbol="fa fa-circle"
-                  emptySymbol="fa fa-circle-o"
-                  id="bestnearbyrest-review-bubbles" 
-                  readonly={true}  
-                  start={0} 
-                  stop={5} 
-                  step={1} 
-                  initialRating={attraction.reviewRating / 2}
-                />
+                {getBubbleRating(attraction.reviewRating)}
               </span>
               <span id="bestnearbyattraction-review-count">
                 (
