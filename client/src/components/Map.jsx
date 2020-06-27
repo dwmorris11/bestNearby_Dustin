@@ -2,31 +2,12 @@ import React from 'react';
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 import key from '../../../MapAPI'
 
-
 const style = {
   width: '100%',
   height: '372px'
 }
-
-
-// below not working for some reason... In line map instead
-// const makeAttractionMarkers = (attractions) => {
-//   attractions.map((attraction) =>  (
-//       <Marker position={attraction.location} />
-//     )
-//   )
-// }
-
-
-// class MapContainer extends React.Component {
-//   constructor(props) {
-//     super(props)
-//     this.state = {
-      
-//     }
-//   }
  
-  const MapContainer = ({ location, attractions, restaurants }) => {
+const MapContainer = ({ location, attractions, restaurants }) => {
   return (
     <div className="map">
       <Map 
