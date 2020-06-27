@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faWalking } from "@fortawesome/free-solid-svg-icons"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faWalking } from '@fortawesome/free-solid-svg-icons';
 import getWalkingDistance from './getWalkingDistance';
 import getBubbleRating from './getBubbleRating';
 

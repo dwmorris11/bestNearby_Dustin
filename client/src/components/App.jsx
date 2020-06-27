@@ -7,7 +7,7 @@ import BestNearByExperience from './BestNearByExperience';
 import Map from './Map';
 import '../../dist/style.css';
 import '../../dist/nearbyatt.css';
-import '../../dist/currentatt.css'
+import '../../dist/currentatt.css';
 import '../../dist/nearbyexperience.css';
 
 class App extends React.Component {
@@ -32,8 +32,8 @@ class App extends React.Component {
     const { attractionId } = this.state;
     axios.get(`${attractionId}api/nearbyattractions`)
       .then((res) => {
-        const { 
-          contact, location, nearByAttractions, nearByRestaurants, nearByExperience 
+        const {
+          contact, location, nearByAttractions, nearByRestaurants, nearByExperience,
         } = res.data;
         this.setState({
           contact,

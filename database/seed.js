@@ -29,7 +29,7 @@ const getRandomName = function () {
 
 const imageThumbBase = 'https://jwkfec2020.s3-us-west-2.amazonaws.com/FEC_images/';
 const imageThumbs = [];
-for (let i = 0; i < 15; i += 1) {
+for (let i = 1; i < 15; i += 1) {
   imageThumbs.push(`${imageThumbBase}FEC${i}.jpg`);
 }
 
