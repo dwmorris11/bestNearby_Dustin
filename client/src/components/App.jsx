@@ -55,7 +55,11 @@ class App extends React.Component {
     return (
       <div>
         <div className="map">
-        <NearByMap center={location}/>
+          <NearByMap 
+            center={location}
+            attractions={nearByAttractions}
+            restaurants={nearByRestaurants}
+          />
         </div>
         <div className="not-map-components">
           <CurrrentAttInfo contact={contact} />
