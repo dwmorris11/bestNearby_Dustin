@@ -5,6 +5,7 @@ import CurrrentAttInfo from './CurrentAttInfo';
 import BestNearByContainer from './BestNearByContainer';
 import BestNearByExperience from './BestNearByExperience';
 import Map from './Map';
+import NearByMap from './NewMap';
 import '../../dist/style.css';
 import '../../dist/nearbyatt.css';
 import '../../dist/currentatt.css';
@@ -53,11 +54,9 @@ class App extends React.Component {
     } = this.state;
     return (
       <div>
-        <Map
-          location={location}
-          restaurants={nearByRestaurants}
-          attractions={nearByAttractions}
-        />
+        <div className="map">
+        <NearByMap center={location}/>
+        </div>
         <div className="not-map-components">
           <CurrrentAttInfo contact={contact} />
           <BestNearByContainer
