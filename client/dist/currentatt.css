@@ -1,0 +1,57 @@
+#current-attraction-info {
+    width: 25%;
+    padding-top: 24px;
+    padding-left: 12px;
+    box-sizing: border-box;
+}
+#current-attraction-location-header {
+    margin-bottom: auto;
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 700;
+}
+#current-attraction-location-container {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    line-height: 22px;
+}
+#current-attraction-contact-header {
+    margin-bottom: 4px;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 19px;
+    color: #000a12;
+}
+#current-attraction-contact-card {
+    background-color: #fff;
+    color: #4a4a4a;
+    font-size: 14px;
+    line-height: 18px;
+    padding-top: 7px;
+    margin: auto;
+}
+#current-attraction-contact-address {
+    padding-bottom: 8px;
+}
+#urrent-attraction-contact-address-icon {
+    font-size: 18px;
+    line-height: 22px;
+    padding-right: 10px;
+}
+#current-attraction-contact-address-loc {
+    background-color: #fff;
+    color: #4a4a4a;
+    font-size: 14px;
+    line-height: 18px;
+    padding-top: 7px;
+}
+#current-attraction-contact-email {
+    padding-bottom: 8px;
+}
+#current-attraction-contact-phonenumber {
+    padding-bottom: 8px;
+}
+#current-attraction-contact-webiste {
+    padding-bottom: 8px;
+}
+

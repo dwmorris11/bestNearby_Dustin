@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import getBubbleRating from './getBubbleRating';
 
 const NearByExperience = ({ nearByExperience }) => (
   <div className="nearbyexperience-container-outer">
@@ -12,7 +13,9 @@ const NearByExperience = ({ nearByExperience }) => (
           <span className="icon-heart" />
         </span>
       </div>
-      <img alt="" className="experience-image" src={nearByExperience.image} />
+      <div className="experience-image-container">
+        <img alt="" className="experience-image" src={nearByExperience.image} />
+      </div>
       <div className="experience-details-container">
         <span className="experience-kind">
           {nearByExperience.kind}
@@ -21,12 +24,14 @@ const NearByExperience = ({ nearByExperience }) => (
           {nearByExperience.name}
         </a>
         <div className="experience-ratings-container">
-          <span className="experience-rating-bubbles">
-            {nearByExperience.reviewRating}
-          </span>
-          <span className="experience-rating-count">
-            {nearByExperience.reviewCount}
-          </span>
+          <div className="experience-review-container">
+            <span className="experience-rating-bubbles">
+              {getBubbleRating(nearByExperience.reviewRating)}
+            </span>
+            <span className="experience-rating-count">
+              {`${nearByExperience.reviewCount} reviews`}
+            </span>
+          </div>
           <div className="experience-language-container">
             <img alt="google" src="https://static.tacdn.com/img2/google/powered_by_google_translate.png" />
           </div>

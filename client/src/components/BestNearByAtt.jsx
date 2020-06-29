@@ -1,6 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faWalking } from '@fortawesome/free-solid-svg-icons';
 import getWalkingDistance from './getWalkingDistance';
+import getBubbleRating from './getBubbleRating';
 
 const BestNearbyAttractions = ({ attractions, parentLocation }) => (
   <div className="bestnearbyattractions-container">
@@ -16,7 +19,9 @@ const BestNearbyAttractions = ({ attractions, parentLocation }) => (
           <div id="bestnearbyattraction-name">{attraction.name}</div>
           <div id="bestnearbyattraction-review">
             <div id="bestnearbyattraction-review-container">
-              <span id="bestnearbyattraction-review-bubbles">{attraction.reviewRating}</span>
+              <span id="bestnearbyattraction-review-bubbles">
+                {getBubbleRating(attraction.reviewRating)}
+              </span>
               <span id="bestnearbyattraction-review-count">
                 (
                 {attraction.reviewCount}
@@ -26,7 +31,7 @@ const BestNearbyAttractions = ({ attractions, parentLocation }) => (
           </div>
           <div className="bestnearbyattraction-details">
             <div id="bestbearbyattraction-details-distance">
-              <span id="bestbearbyattraction-distance-icon">walking person icon</span>
+              <FontAwesomeIcon id="bestnearbyrest-distance-icon" icon={faWalking} />
               <span id="bestbearbyattraction-distance-info">{getWalkingDistance(parentLocation, attraction.location)}</span>
             </div>
             <div id="bestbearbyattraction-details-price-type">

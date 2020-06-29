@@ -2,9 +2,6 @@ const mongoose = require('mongoose');
 const routes = require('../../server/routehandlers.js');
 const db = require('../../database/NearbyAttractions');
 
-// enzyme is recommended framefork for integration testing
-// jest is recommended unit testing
-
 // test if database find recieves the attraction id
 // test if database find return the database object
 // test if api returns data when found

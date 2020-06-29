@@ -1,11 +1,107 @@
-#map {
-    height: 1000px;
-    width: 1000px;
+/*Map */
+.map {
+    height: 372px;
+    width: 100%;
     border-width: 10px;
     color: brown;
 }
-
-#current-attraction-location-header{
-   border-width: 10px;
-    color: brown;
+/* Not Map */
+.not-map-components {
+    display: flex;
+    padding: 12px;
+    box-sizing: border-box;
+    font-family: 'Trip Sans', Arial, sans-serif !important;
 }
+
+/* Nearby Rest Attract */
+.bestnearby-detail {
+    width: 75%
+}
+.bestnearby-summarybar {
+    margin-top: -12px;
+    margin-bottom: -12px;
+    display: flex;
+    box-sizing: border-box;
+}
+#bestnearby-summarybar-rest {
+    flex: none;
+    width: 50%;
+    padding: 12px;
+    box-sizing: border-box;
+    margin: 0;
+    margin-top: 16px;
+    padding-bottom: 12px;
+    border: solid #e0e0e0;
+    border-width: 0 0 1px;
+}
+#bestnearby-summarybar-att {
+    flex: none;
+    width: 50%;
+    padding: 12px;
+    box-sizing: border-box;
+    margin: 0;
+    margin-top: 16px;
+    padding-bottom: 12px;
+    border: solid #e0e0e0;
+    border-width: 0 0 1px;
+}
+
+
+#bestnearby-summarybar-att-val {
+    font-size: 42px;
+    line-height: 42px;
+    font-weight: 700;
+    color: #069;
+}
+
+#bestnearby-summarybar-rest-val {
+    font-size: 42px;
+    line-height: 42px;
+    font-weight: 700;
+    color: #d91e18;
+}
+#bestnearby-summarybar-rest-text {
+    align-self: flex-start;
+    margin-top: 4px;
+    margin-left: 8px;
+}
+#bestnearby-summarybar-att-text {
+    align-self: flex-start;
+    margin-top: 4px;
+    margin-left: 8px;
+}
+
+#bestnearby-summarybar-rest-text-kind {
+    display: block;
+    color: #d91e18;
+    font-weight: 700;
+}
+#bestnearby-summarybar-att-text-kind {
+    display: block;
+    color: #069;
+    font-weight: 700;
+}
+
+#bestnearby-summarybar-att-text-dist {
+    display: block;
+    color: #4a4a4a;
+    font-weight: 400;
+}
+
+#bestnearby-summarybar-rest-text-dist {
+    display: block;
+    color: #4a4a4a;
+    font-weight: 400;
+}
+.bestrestaurants-bestattractions-details {
+    display: flex;
+}
+.bestnearbyattractions-container {
+    width: 50%;
+    padding: 12px;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+}
+
+
+

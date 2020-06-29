@@ -1,0 +1,123 @@
+.nearbyexperience-container-outer {
+    width: 25%;
+}
+.nearbyexperience-container-outer {
+    width: 33.33333333%;
+    padding-top: 24px;
+    padding-bottom: 4px;
+    padding: 12px;
+    box-sizing: border-box;
+    margin: 0;
+    flex: none;
+}
+.nearbyexperience-container-inner {
+    border: 1px solid #e0e0e0;
+    padding: 24px;
+}
+.nearbyexperience-header {
+    margin-bottom: 8px;
+    font-size: 24px;
+    line-height: 28px;
+    font-weight: 700;
+    margin: 0;
+    padding: 0;
+}
+.experience-image-container {
+    align-items: center;
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    position: relative;
+    align-self: stretch;
+    display: inline;
+}
+
+.experience-image {
+    background-position: top;
+    background-position: 100%;
+    background-size: cover;
+    align-self: stretch;
+    width: 100%;
+    height: 100%;
+}
+.experience-details-container {
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+}
+.experience-kind {
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 12px;
+    line-height: 16px;
+}
+.experience-ratings-container {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+.experience-language-container {
+    color: var(--ta-gray-3);
+    font-size: 10px;
+    line-height: 20px;
+    text-align: right;
+}
+.experience-review-description {
+    white-space: normal;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    margin: 8px 0 16px;
+    font-size: 14px;
+    line-height: 18px;
+    overflow: hidden;
+    -webkit-locale: "en-x-mtfrom-und";
+}
+.experience-price-container {
+    flex-wrap: nowrap;
+    align-items: flex-end;
+    align-self: stretch;
+    padding-top: 4px;
+}
+
+.experience-rating-count {
+    margin: 0 4px;
+    font-size: 14px;
+    line-height: 18px;
+    color: grey;
+}
+.experience-price-amount {
+    flex-direction: column;
+    color: black;
+    margin-right: 10px;
+    display: flex;
+    font-size: 14px;
+    line-height: 18px;
+    display: inline;
+    font-weight: 700;
+    padding-left: 2px;
+}
+.experience-priceunit {
+    font-size: 12px;
+    line-height: 16px;
+    color: grey;
+    padding: 2px; 
+    padding-right: 2px;
+}
+.experience-more-info {
+    flex: end; 
+    background-color: black;
+    color: white;
+    font-weight: 700;
+    display: inline-block;
+    position: relative;
+    font-family: inherit;
+    font-size: 14px;
+    line-height: 18px;
+    padding: 8px 16px;
+    border-radius: 3px;
+    background-clip: padding-box;
+    box-sizing: border-box;
+    border: 1px solid
+}

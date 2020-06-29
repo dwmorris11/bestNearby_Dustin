@@ -12,7 +12,7 @@ for (let i = 1; i <= 100; i += 1) {
 }
 
 // const nationalities = ['en', 'it', 'nl', 'uk', 'de', 'jp', 'es', 'fr'];
-const restaurantBldgs = ['Palace', 'House', 'Shack', 'Jungle', 'Buffet', 'Experience'];
+const restaurantBldgs = ['Noodle House', 'House', 'Eatery', 'Kitchen', 'Buffet', 'Soup House', 'Pancake House'];
 const restaurantTypes = ['Italian', 'Mediterranean', 'Indian', 'Thai', 'Vietnamese', 'Seafood', 'American', 'Barbecue'];
 const priceIcons = ['$', '$$-$$$', '$$$$'];
 
@@ -29,7 +29,7 @@ const getRandomName = function () {
 
 const imageThumbBase = 'https://jwkfec2020.s3-us-west-2.amazonaws.com/FEC_images/';
 const imageThumbs = [];
-for (let i = 0; i < 15; i += 1) {
+for (let i = 1; i < 15; i += 1) {
   imageThumbs.push(`${imageThumbBase}FEC${i}.jpg`);
 }
 
