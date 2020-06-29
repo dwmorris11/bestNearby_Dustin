@@ -1,9 +1,19 @@
+
 /*Map */
 .map {
     height: 372px;
     width: 100%;
     border-width: 10px;
     color: brown;
+}
+.fullscreenmap {
+  position: absolute;
+  z-index: 5;
+  width: 99%;
+  height:  99%;
+  align-content: center;
+  /* background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4); */
 }
 /* Not Map */
 .not-map-components {

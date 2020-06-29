@@ -5,12 +5,13 @@ import CurrrentAttInfo from './CurrentAttInfo';
 import BestNearByContainer from './BestNearByContainer';
 import BestNearByExperience from './BestNearByExperience';
 import Map from './Map';
-import NearByMap from './NewMap';
+import NearByMap from './NearByMap';
 import '../../dist/style.css';
 import '../../dist/nearbyatt.css';
 import '../../dist/currentatt.css';
 import '../../dist/nearbyexperience.css';
 import '../../dist/nearbyrest.css'
+import FullScreenMap from './FullScreenMap';
 
 class App extends React.Component {
   constructor(props) {
@@ -22,8 +23,10 @@ class App extends React.Component {
       nearByAttractions: [],
       nearByRestaurants: [],
       nearByExperience: [],
+      fullScreen: false,
     };
     this.fetchData = this.fetchData.bind(this);
+    this.fullScreenMapView = this.fullScreenMapView.bind(this);
   }
 
   componentDidMount() {
@@ -48,17 +51,24 @@ class App extends React.Component {
       .catch((err) => console.log(err));
   }
 
+  fullScreenMapView() {
+    let view = !this.fullScreen
+    console.log(this.state.fullScreen)
+    this.setState({
+      fullScreen: view
+    })
+  }
+
   render() {
     const {
-      contact, location, nearByAttractions, nearByRestaurants, nearByExperience,
+      contact, location, nearByAttractions, nearByRestaurants, nearByExperience, fullScreen
     } = this.state;
     return (
       <div>
         <div className="map">
-          <NearByMap 
-            center={location}
-            attractions={nearByAttractions}
-            restaurants={nearByRestaurants}
+          <NearByMap center={location}
+          attractions={nearByAttractions}
+          restaurants={nearByRestaurants}
           />
         </div>
         <div className="not-map-components">
