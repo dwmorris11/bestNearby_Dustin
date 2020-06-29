@@ -93,6 +93,7 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.29",
     "@fortawesome/free-solid-svg-icons": "^5.13.1",
     "@fortawesome/react-fontawesome": "^0.1.11",
+    "@react-google-maps/api": "^1.9.7",
     "axios": "^0.19.2",
     "body-parser": "^1.19.0",
     "chance": "^1.1.6",
@@ -101,7 +102,6 @@
     "enzyme-adapter-react-16": "^1.15.2",
     "express": "^4.17.1",
     "geolib": "^3.3.1",
-    "google-maps-react": "^2.0.6",
     "jest-enzyme": "^7.1.2",
     "mongoose": "^5.9.19",
     "morgan": "^1.10.0",
@@ -110,6 +110,7 @@
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-modal": "^3.11.2",
     "react-rating": "^2.0.5",
     "react-test-renderer": "^16.13.1"
   }
