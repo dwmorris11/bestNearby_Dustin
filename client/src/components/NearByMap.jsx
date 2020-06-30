@@ -55,8 +55,8 @@ const NearByMap = ({ center, attractions, restaurants }) => {
 
 NearByMap.propTypes = {
   center: PropTypes.shape({
-    lat: PropTypes.number,
-    lng: PropTypes.number,
+    lat: PropTypes.string,
+    lng: PropTypes.string,
   }).isRequired,
   attractions: PropTypes.arrayOf(PropTypes.object).isRequired,
   restaurants: PropTypes.arrayOf(PropTypes.object).isRequired,
