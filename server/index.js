@@ -9,7 +9,7 @@ const dist = path.resolve(__dirname, '..', 'client', 'dist');
 
 const app = express();
 
-app.use('/:attractionId', express.static(dist));
+app.use('/:attractionId/bestNearby', express.static(dist));
 app.use(bodyParser.json());
 app.use(router);
 

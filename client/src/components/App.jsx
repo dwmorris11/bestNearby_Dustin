@@ -18,11 +18,11 @@ class App extends React.Component {
     super(props);
     this.state = {
       attractionId: props.attractionId,
-      contact: '',
-      location: '',
+      contact: {},
+      location: {},
       nearByAttractions: [],
       nearByRestaurants: [],
-      nearByExperience: [],
+      nearByExperience: {},
       fullScreen: false,
     };
     this.fetchData = this.fetchData.bind(this);

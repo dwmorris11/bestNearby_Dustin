@@ -19,6 +19,7 @@ const options = {
 const makeMarkers = (attractions, iconUrl) => (
   attractions.map((attraction) => (
     <Marker
+      key={attraction._id}
       position={attraction.location}
       icon={{
         url: iconUrl,
