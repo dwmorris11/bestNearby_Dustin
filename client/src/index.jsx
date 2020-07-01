@@ -8,5 +8,5 @@ const attractionId = currentUrl.pathname;
 
 ReactDOM.render(
   <App attractionId={attractionId} />,
-  document.getElementById('app'),
+  document.getElementById('bestNearby'),
 );
