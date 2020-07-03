@@ -15,7 +15,7 @@ app.use(router);
 
 app.get('/:attractionId/bestNearby/api/data', routes.findAttractionById);
 
-const port = 8080;
+const port = 80;
 
 app.listen(port, () => console.log('server is listening on port: ', port));
 
