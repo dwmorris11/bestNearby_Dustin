@@ -1,5 +1,5 @@
 const Chance = require('chance');
-const NearbyAttractions = require('./nearbyattractions.js');
+const NearbyAttractions = require('./NearbyAttractions.js');
 
 const chance = new Chance();
 

@@ -13,9 +13,9 @@ app.use('/:attractionId/bestNearby', express.static(dist));
 app.use(bodyParser.json());
 app.use(router);
 
-app.get('/:attractionId/api/nearbyattractions', routes.findAttractionById);
+app.get('/:attractionId/bestNearby/api/data', routes.findAttractionById);
 
-const port = 3003;
+const port = 8080;
 
 app.listen(port, () => console.log('server is listening on port: ', port));
 
