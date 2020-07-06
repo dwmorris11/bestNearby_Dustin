@@ -1,4 +1,4 @@
-FROM node:latest
+FROM node:current-alpine
 
 WORKDIR /client/dist
 
@@ -10,6 +10,6 @@ COPY . /client/dist
 
 RUN ["npm", "run", "build"]
 
-EXPOSE 8080
+EXPOSE 3003
 
 CMD ["npm", "start"]

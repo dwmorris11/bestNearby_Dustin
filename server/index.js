@@ -13,7 +13,7 @@ app.use('/:attractionId/bestNearby', express.static(dist));
 app.use(bodyParser.json());
 app.use(router);
 
-app.get('/:attractionId/bestNearby/api/data', routes.findAttractionById);
+app.get('/:attractionId/api/nearbyattractions', routes.findAttractionById);
 
 const port = 3003;
 

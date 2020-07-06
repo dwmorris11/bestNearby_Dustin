@@ -35,7 +35,7 @@ class App extends React.Component {
 
   fetchData() {
     const { attractionId } = this.state;
-    axios.get(`${attractionId}api/data`)
+    axios.get(`${attractionId}api/nearbyattractions`)
       .then((res) => {
         const {
           contact, location, nearByAttractions, nearByRestaurants, nearByExperience,
