@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 
-const mongoUri = 'mongodb://database/nearbyattractionsdb';
+const DB = process.env.db || 'localhost';
+
+const mongoUri = `mongodb://${DB}/nearbyattractionsdb`;
 
 const connection = mongoose.connect(mongoUri, (err) => {
   if (err) {

@@ -8,6 +8,8 @@ RUN npm install
 
 COPY . /client/dist
 
+ENV DB="mongo"
+
 RUN ["npm", "run", "build"]
 
 EXPOSE 3003
