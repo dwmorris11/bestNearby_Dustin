@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "jest --coverage",
-    "build": "webpack -d --watch",
-    "start": "nodemon server",
+    "watch": "-d --watch",
+    "build": "webpack",
+    "start": "node server/index.js && node database/seed.js ",
     "eslint": "eslint --ext .jsx .",
     "seed": "node database/seed.js"
   },
@@ -87,7 +88,8 @@
     "style-loader": "^1.2.1",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.12",
-    "webpack-dev-server": "^3.11.0"
+    "webpack-dev-server": "^3.11.0",
+    "webpack-merge": "^5.0.7"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.29",
@@ -105,6 +107,7 @@
     "jest-enzyme": "^7.1.2",
     "mongoose": "^5.9.19",
     "morgan": "^1.10.0",
+    "node": "14.5.0",
     "nodemon": "^2.0.4",
     "path": "^0.12.7",
     "prop-types": "^15.7.2",
