@@ -154,11 +154,11 @@ attractionIds.forEach((attractionId) => {
   };
 
   seedData.push(newAttraction);
-  
+
 });
 
-// console.log(seedData[0])
+console.log(seedData[0]);
 
-NearbyAttractions.NearbyAttraction.create(seedData)
-  .then(() => console.log('created seed data'))
-  .catch((err) => console.log(err));
+// NearbyAttractions.NearbyAttraction.create(seedData)
+//   .then(() => console.log('created seed data'))
+//   .catch((err) => console.log(err));
