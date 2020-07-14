@@ -7,7 +7,7 @@
     "test": "jest --coverage",
     "watch": "-d --watch",
     "build": "webpack",
-    "start": "node server/index.js && node database/seed.js ",
+    "start": "node server/index.js",
     "eslint": "eslint --ext .jsx .",
     "seed": "node database/seed.js"
   },
