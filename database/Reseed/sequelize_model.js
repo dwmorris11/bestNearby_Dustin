@@ -40,7 +40,10 @@ pgtools.dropdb(config, "bestNearby")
         });
 
     const nearByRestaurant = sequelize.define('nearbyrestaurant', {
-      id: DataTypes.INTEGER,
+      id: {
+        type: DataTypes.INTEGER,
+        primaryKey: true
+      },
       lat: DataTypes.DECIMAL,
       lng: DataTypes.DECIMAL,
       image: DataTypes.STRING,
@@ -56,7 +59,10 @@ pgtools.dropdb(config, "bestNearby")
       updatedAt: false
     });
     const nearByAttraction = sequelize.define('nearbyattraction', {
-      id: DataTypes.INTEGER,
+      id: {
+        type: DataTypes.INTEGER,
+        primaryKey: true
+      },
       lat: DataTypes.DECIMAL,
       lng: DataTypes.DECIMAL,
       image: DataTypes.STRING,
@@ -80,7 +86,7 @@ pgtools.dropdb(config, "bestNearby")
       pricenumber: DataTypes.INTEGER,
       pricetype: DataTypes.STRING,
       language: DataTypes.STRING,
-      description: DataTypes.STRING,
+      description: DataTypes.TEXT,
       attractionid: DataTypes.STRING
     }, {
       createdAt: false,
@@ -104,5 +110,5 @@ pgtools.dropdb(config, "bestNearby")
       }
     })();
 
-    // sequelize.close();
+
 });

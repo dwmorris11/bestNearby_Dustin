@@ -1,6 +1,15 @@
 const Chance = require('chance');
 const fs = require('fs');
-
+const { Readable, pipeline } = require('stream');
+let startTime = Date.now();
+let nearFile = fs.createWriteStream('nearby.txt', {flags: 'a'})
+    .on('error', (err) => console.error(err.message));
+let experienceFile = fs.createWriteStream('experience.txt', {flags: 'a'})
+    .on('error', (err) => console.error(err.message));
+let restFile = fs.createWriteStream('rest.txt', {flags: 'a'})
+    .on('error', (err) => console.error(err.message));
+let attractionFile = fs.createWriteStream('attraction.txt', {flags: 'a'})
+    .on('error', (err) => console.error(err.message));
 
 const chance = new Chance();
 
@@ -8,11 +17,13 @@ const seedData = [];
 
 const attractionIds = [];
 
+let locations = [];
+
 const d = '|'; //delimiter
 
 const qty = 10000000; //quantity of records
 
-for (let i = 9000001; i <= qty; i += 1) {
+for (let i = 1; i <= qty; i += 1) {
   attractionIds.push(String(i).padStart(8, 0));
 }
 
@@ -32,9 +43,9 @@ const getRandomName = function () {
   return `${name}'s ${building}`;
 };
 
-const imageThumbBase = 'https://jwkfec2020.s3-us-west-2.amazonaws.com/FEC_images/';
+const imageThumbBase = 'https://images-trip.s3.us-east-2.amazonaws.com/';
 const imageThumbs = [];
-for (let i = 1; i < 15; i += 1) {
+for (let i = 1; i < 1000; i += 1) {
   imageThumbs.push(`${imageThumbBase}FEC${i}.jpg`);
 }
 
@@ -91,49 +102,111 @@ const makeNearbyExperience = function (attractionId) {
   return newNearbyExperience;
 };
 
-let nearFile = fs.createWriteStream('nearby9.txt', {flags: 'a'})
-    .on('error', (err) => console.error(err.message));
-let experienceFile = fs.createWriteStream('experience9.txt', {flags: 'a'})
-    .on('error', (err) => console.error(err.message));
-// let restFile = fs.createWriteStream('rest9.txt', {flags: 'a'})
-//     .on('error', (err) => console.error(err.message));
-// let attractionFile = fs.createWriteStream('attraction9.txt', {flags: 'a'})
-//     .on('error', (err) => console.error(err.message));
-
-attractionIds.forEach((attractionId) => {
-  const lat = chance.latitude({ fixed: 3 });
-  const lng = chance.longitude({ fixed: 3 });
-  const location = {
-    lat,
-    lng
-  };
-  const address = String(chance.address({ short_suffix: true }));
-  const website = chance.email();
-  const phonenumber = chance.phone();
-  const email = chance.email();
-  const nearByRestaurants = [];
-  const nearByAttractions = [];
-  for (let i = 0; i < 3; i += 1) {
-    nearByRestaurants.push(makeNearbyRestaurant(i, location, attractionId));
-    nearByAttractions.push(makeNearbyAttraction(i, location, attractionId));
+async function * generate() {
+  for (let i = 0; i < attractionIds.length; i++) {
+    const lat = chance.latitude({ fixed: 3 });
+    const lng = chance.longitude({ fixed: 3 });
+    const location = {
+      lat,
+      lng
+    };
+    locations.push(location);
+    const address = String(chance.address({ short_suffix: true }));
+    const website = chance.email();
+    const phonenumber = chance.phone();
+    const email = chance.email();
+    const newAttraction = attractionIds[i] + d + lat + d + lng + d + address + d + website
+      + d + phonenumber + d + email + '\n';
+    yield newAttraction;
   }
-  const nearByExperience = makeNearbyExperience(attractionId);
+}
 
-  const newAttraction = attractionId + d + lat + d + lng + d + address + d + website
-    + d + phonenumber + d + email + '\n';
-
-  function write(file, data, cb) {
-    if (!file.write(data)) {
-      file.once('drain', cb);
-    } else {
-      process.nextTick(cb);
+async function * generate1() {
+  for( let j = 0; j < attractionIds.length; j++){
+    for (let i = 0; i < 3; i+= 1) {
+      yield makeNearbyRestaurant(i, locations[j], attractionIds[j]);
     }
   }
-  write(nearFile, newAttraction, () => {});
-  write(experienceFile, nearByExperience, () => {});
-  // for(let i = 0; i < 3; i+=1) {
-  //   write(restFile, nearByRestaurants[i], () => {});
-    // write(attractionFile, nearByAttractions[i], () => {});
-  // };
-});
+}
 
+async function * generate2() {
+  for( let j = 0; j < attractionIds.length; j++){
+    for (let i = 0; i < 3; i+= 1) {
+      yield makeNearbyAttraction(i, locations[j], attractionIds[j]);
+    }
+  }
+}
+
+async function * generate3() {
+  for( let j = 0; j < attractionIds.length; j++){
+      yield makeNearbyExperience(attractionIds[j]);
+  }
+}
+
+pipeline(
+  nearRead = Readable.from(generate()),
+  nearFile,
+  (err) => {
+    if(err) {
+      console.error('Nearby Pipeline failed', err);
+    } else {
+      console.log('Nearby Pipeline succeeded');
+      const finishNear = -1 * (startTime - Date.now())/1000;
+      console.log('Finished Nearby in ', finishNear, ' seconds')
+      startTime = Date.now();
+      generateRestaurant();
+    }
+  }
+);
+
+function generateRestaurant() {
+  pipeline(
+    nearRest = Readable.from(generate1()),
+    restFile,
+    (err) => {
+      if(err) {
+        console.error('Restaurant Pipeline failed', err);
+      } else {
+        console.log('Restaurant Pipeline succeeded');
+        const finishRest = -1 * (startTime - Date.now())/1000;
+        console.log('Finished Restaurant in ', finishRest, ' seconds')
+        startTime = Date.now();
+        generateAttraction();
+      }
+    }
+  );
+}
+
+function generateAttraction () {
+  pipeline(
+    nearAttraction = Readable.from(generate2()),
+    attractionFile,
+    (err) => {
+      if(err) {
+        console.error('Attraction Pipeline failed', err);
+      } else {
+        console.log('Attraction Pipeline succeeded');
+        const finishAttraction = -1 * (startTime - Date.now())/1000;
+        console.log('Finished Attractions in ', finishAttraction, ' seconds')
+        startTime = Date.now();
+        generateExperience();
+      }
+    }
+  );
+}
+
+function generateExperience () {
+  pipeline(
+    nearAttraction = Readable.from(generate3()),
+    experienceFile,
+    (err) => {
+      if(err) {
+        console.error('Experience Pipeline failed', err);
+      } else {
+        console.log('Experience Pipeline succeeded');
+        const finishExperience = -1 * (startTime - Date.now())/1000;
+        console.log('Finished Experience in ', finishExperience, ' seconds')
+      }
+    }
+  );
+}

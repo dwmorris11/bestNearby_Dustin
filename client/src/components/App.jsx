@@ -48,7 +48,7 @@ class App extends React.Component {
           nearByExperience,
         });
       })
-      .catch((err) => console.log(err));
+      .catch((err) => console.log('attractionId: ', attractionId, 'error: ', err));
   }
 
   fullScreenMapView() {
