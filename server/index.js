@@ -1,3 +1,4 @@
+require('newrelic');
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
@@ -13,7 +14,7 @@ app.use('/:attractionId/bestNearby', express.static(dist));
 app.use(bodyParser.json());
 app.use(router);
 
-app.get('/:attractionId/api/nearbyattractions', routes.findAttractionById);
+app.get('/:attractionId/bestNearby/api/nearbyattractions', routes.findAttractionById);
 
 const port = 3003;
 

@@ -2,3 +2,5 @@ node_modules
 client/dist/bundle.js
 coverage
 MapAPI.js
+/database/ArangoReseed/arango_config.js
+newrelic_agent.log

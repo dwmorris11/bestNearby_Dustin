@@ -1,9 +1,9 @@
-
+const { findAttraction } = require('../database/ArangoReseed/index');
 
 module.exports.findAttractionById = async (req, res, testCallback) => {
-  const attractionID = req.params.attractionId;
-  console.log(attractionID)
-  //
+  const attractionId = req.params.attractionId;
+  console.log(attractionId)
+  findAttraction(attractionId)
     .then((data) => {
       res.status(200);
       res.send(data);
